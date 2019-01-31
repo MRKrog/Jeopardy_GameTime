@@ -27,8 +27,10 @@ import Box from './Box.js'; // Test Class
 // Create Objects - Instantiate Game
 const newGame = new Game();
 
-const dataSet = Object.values(Data).splice(1);
-console.log(dataSet);
+// const dataSet = Object.values(Data).splice(1);
+// console.log(dataSet);
+console.log(Data)
+
 
 
 
@@ -86,3 +88,14 @@ function startButton(event){
 
 
 }
+
+
+// CategoriesValueIdArray = [1 - 10]]
+var categoriesValueIdArray = Object.values(Data.categories)
+console.log(categoriesValueIdArray)
+
+// captialized category Array = UNITED STATES HISTORY
+var capitalizedCategoryArray = Object.keys(Data.categories).map((element) =>{
+  return element.replace(/([a-z])([A-Z])/g, '$1 $2').toUpperCase()
+})
+console.log(captializedCategoryArray)
