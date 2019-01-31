@@ -14,7 +14,7 @@ export default {
 
   },
 
-  createNameBoard: function(){
+  buildScoreBoard: function(){
     $('footer').append(
       `<section class="player-info-container">
         <div class="player-info">
@@ -38,5 +38,9 @@ export default {
     //create board
 
   },
+
+  buildGameBoard: function(){
+
+  }
 
 }
