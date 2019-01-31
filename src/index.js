@@ -72,11 +72,10 @@ let playerThreeScore = $('#playerThree-Score');
 function startButton(event){
   event.preventDefault();
   console.log('Gogogo');
-
   // condition to check if there is three players
-
   newGame.createPlayers();
-  // newGame.createRounds()
+
+  newGame.createRounds();
 
 
   // append player info container
@@ -84,8 +83,8 @@ function startButton(event){
 
   // create jeporady board / append that shit
 
-
 }
+
 
 
 // CategoriesValueIdArray = [1 - 10]]
@@ -93,19 +92,20 @@ var categoriesValueIdArray = Object.values(Data.categories)
 console.log(categoriesValueIdArray)
 
 // captialized category Array = UNITED STATES HISTORY
-var capitalizedCategoryArray = Object.keys(Data.categories).map((element) =>{
+window.capitalizedCategoryArray = Object.keys(Data.categories).map((element) =>{
   return element.replace(/([a-z])([A-Z])/g, '$1 $2').toUpperCase()
 })
-console.log(captializedCategoryArray);
+console.log(capitalizedCategoryArray);
 
 
 
 // Can grab specific categories of array
-var clueObject = Object.values(data.clues)
+var clueObject = Object.values(Data.clues)
 
-let newClue = clueObject.filter(arr => {
-  return arr.categoryId === 2
+window.newClue = clueObject.filter(arr => {
+  return arr.categoryId === 2;
 })
 console.log(newClue)
 
 
+console.log(Data);
