@@ -88,20 +88,25 @@ function startButton(event){
 }
 
 
+
+
+// console.log(categoryCapitalWithValues)
+
+
 // CategoriesValueIdArray = [1 - 10]]
 var categoriesValueIdArray = Object.values(Data.categories)
-console.log(categoriesValueIdArray)
+// console.log(categoriesValueIdArray)
 
-// captialized category Array = UNITED STATES HISTORY
+// capitalized category Array = UNITED STATES HISTORY
 var capitalizedCategoryArray = Object.keys(Data.categories).map((element) =>{
   return element.replace(/([a-z])([A-Z])/g, '$1 $2').toUpperCase()
 })
-console.log(captializedCategoryArray);
+// console.log(captializedCategoryArray);
 
 
 
 // Can grab specific categories of array
-var clueObject = Object.values(data.clues)
+var clueObject = Object.values(Data.clues)
 
 let newClue = clueObject.filter(arr => {
   return arr.categoryId === 2
@@ -109,3 +114,9 @@ let newClue = clueObject.filter(arr => {
 console.log(newClue)
 
 
+//key value pair of categories is capitalized below
+
+var categoryCapitalWithValues = categoriesValueIdArray.reduce(function (acc, curVal, index) {
+acc[capitalizedCategoryArray[index]] = curVal;
+return acc
+}, {})
