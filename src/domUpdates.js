@@ -12,6 +12,13 @@ export default {
 
   displayWidth: function() {
 
+  },
+
+  updateNames: function(){
+    console.log('updating names');
+    // player1.playerSetUp(playerOneName, playerOneScore);
+    // player2.playerSetUp(playerTwoName, playerTwoScore);
+    // player3.playerSetUp(playerThreeName, playerThreeScore);
   }
 
 }
