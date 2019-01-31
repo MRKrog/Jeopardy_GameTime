@@ -1,14 +1,65 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title>Gametime Starter Kit</title>
+    <title>MM Productions</title>
+    <meta name="author" content="Mike & Mike Gametime">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/images/turing-logo.png" />
   </head>
   <body>
-    <h1>Gametime Starter Kit</h1>
 
-    <img src="/images/turing-logo.png" alt="turing logo" height="100px" width="100px">
+    <section class="game-title">
+      <h1>Choose Your Names</h1>
+    </section>
+    <section class="form-selection">
+      <form>
+        <fieldset>
+          <label>Player 1</label>
+          <input id="nameOne-input" type="text" name="playerOne" placeholder="Enter Your Name" />
+        </fieldset>
+        <fieldset>
+          <label>Player 2</label>
+          <input id="nameTwo-input" type="text" name="playerTwo" placeholder="Enter Your Name" />
+        </fieldset>
+        <fieldset>
+          <label>Player 3</label>
+          <input id="nameThree-input" type="text" name="playerThree" placeholder="Enter Your Name" />
+        </fieldset>
+      </form>
+    </section>
 
-    <h3>Box Height</h3>
-    <p id="box-height-display">This is where the height goes.</p>
+
+
+
+    <section class="player-info-container">
+      <div>
+        <h3 id="nameOne-title">Player Name</h3>
+        <h4 id="playerOne-Score">Score</h4>
+      </div>
+
+      <div>
+        <h3 id="nameTwo-title">Player Name</h3>
+        <h4 id="playerTwo-Score">Score</h4>
+      </div>
+
+      <div>
+        <h3 id="nameThree-title">Player Name</h3>
+        <h4 id="playerThree-Score">Score</h4>
+      </div>
+
+    </section>
+
+    <!-- <img src="/images/turing-logo.png" alt="turing logo" height="100px" width="100px"> -->
+    <!-- <h3>Box Height</h3>
+    <p id="box-height-display">This is where the height goes.</p> -->
+
+
+  <section class="action-button-container">
+    <a class="play-btn" href="#"></a>
+    <!-- <button id="startBtn">Start</button> -->
+  </section>
+
+  <!-- Jquery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   </body>
 </html>

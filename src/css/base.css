@@ -1,3 +1,215 @@
-body {
-  background-color: pink;
+/* Styles********
+---------
+COLORS
+blue #408da7
+light-blue #92dfe5
+---------
+FONTS
+font-family: 'Roboto', sans-serif;
+font-family: 'Lora', serif;
+font-family: 'Roboto Condensed', sans-serif;
+---------
+*****************/
+
+@import url('https://fonts.googleapis.com/css?family=Lora|Roboto+Condensed|Roboto:400,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700');
+
+* {
+  box-sizing: border-box;
 }
+
+/* #region Global Styles */
+
+html {
+  height: 100%;
+  display: flex;
+}
+
+
+body {
+  background-image: url(./file.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  background-position: center top;
+}
+
+/* #endregion Global Styles */
+
+
+/* #region player input section */
+
+.game-title {
+  margin: 0;
+  text-align: center;
+}
+
+.game-title h1 {
+  font-family: 'Open Sans Condensed', sans-serif;
+  color: #fff;
+  font-size: 2.5em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/* #endregion player input section */
+
+
+/* #region player input form section */
+
+.form-selection {
+  margin: auto;
+  padding: 0 2em;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.form-selection form {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.form-selection fieldset {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  border: none;
+  width:100%;
+}
+
+.form-selection label {
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  padding-bottom: .5em;
+  font-size: .8em;
+}
+
+
+.form-selection input {
+  font-family: 'Open Sans Condensed', sans-serif;
+  line-height: 1.5;
+  padding: 5px;
+  border-radius: 2px;
+  border: none;
+  box-shadow: 0px 1px 3px 2px rgba(0, 0, 0, .3);
+  background: rgba(255, 255, 255, .9);
+  outline:none;
+  width: 80%;
+}
+
+/* #endregion player input section */
+
+
+/* #region player input screen */
+
+.player-info-container {
+  background:#fff;
+  display: inline-block;
+  padding:1em;
+}
+
+/* #endregion player input screen */
+
+
+/* #region Action Button */
+
+.action-button-container {
+
+}
+
+.action-button-container button {
+
+}
+
+.play-btn {
+  width: 100px;
+  height: 100px;
+  background: radial-gradient( rgba(255, 0, 128, 0.8) 60%, rgba(255, 255, 255, 1) 62%);
+  border-radius: 50%;
+  position: relative;
+  display: block;
+  margin: 100px auto;
+  box-shadow: 0px 0px 25px 3px rgba(255, 0, 128, 0.8);
+}
+
+/* triangle */
+.play-btn::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateX(-40%) translateY(-50%);
+  transform: translateX(-40%) translateY(-50%);
+  transform-origin: center center;
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 25px solid #fff;
+  z-index: 100;
+  -webkit-transition: all 400ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  transition: all 400ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+/* pulse wave */
+.play-btn:before {
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+  -webkit-animation: pulsate1 2s;
+  animation: pulsate1 2s;
+  -webkit-animation-direction: forwards;
+  animation-direction: forwards;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: steps;
+  animation-timing-function: steps;
+  opacity: 1;
+  border-radius: 50%;
+  border: 5px solid rgba(255, 255, 255, .75);
+  top: -30%;
+  left: -30%;
+  background: rgba(198, 16, 0, 0);
+}
+
+@-webkit-keyframes pulsate1 {
+  0% {
+    -webkit-transform: scale(0.6);
+    transform: scale(0.6);
+    opacity: 1;
+    box-shadow: inset 0px 0px 25px 3px rgba(255, 255, 255, 0.75), 0px 0px 25px 10px rgba(255, 255, 255, 0.75);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 0;
+    box-shadow: none;
+
+  }
+}
+
+@keyframes pulsate1 {
+  0% {
+    -webkit-transform: scale(0.6);
+    transform: scale(0.6);
+    opacity: 1;
+    box-shadow: inset 0px 0px 25px 3px rgba(255, 255, 255, 0.75), 0px 0px 25px 10px rgba(255, 255, 255, 0.75);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1);
+    opacity: 0;
+    box-shadow: none;
+
+  }
+}
+
+
+
+
+/* #endregion Action Button */
