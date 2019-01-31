@@ -23,6 +23,7 @@ font-family: 'Roboto Condensed', sans-serif;
 html {
   height: 100%;
   display: flex;
+  overflow: hidden;
 }
 
 body {
@@ -32,6 +33,8 @@ body {
   width: 100%;
   background-position: center top;
   position: relative;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* #endregion Global Styles */
@@ -78,7 +81,7 @@ body {
   width:28%;
 }
 
-.form-selection label {
+/* .form-selection label {
   color: #fff;
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
@@ -97,6 +100,86 @@ body {
   background: rgba(255, 255, 255, .9);
   outline:none;
   width: 100%;
+} */
+
+.player-input {
+  position: relative;
+  margin: auto;
+  width: 100%;
+  display: flex;
+  max-width: 280px;
+}
+
+span.label {
+font-family: 'Roboto', sans-serif;
+font-size: .8em;
+position: absolute;
+top: 16px;
+left: 0;
+font-size: 22px;
+color: #fff;
+font-weight: 500;
+transform-origin: 0 0;
+transition: all .2s ease;
+text-transform: uppercase;
+font-family: 'Open Sans Condensed', sans-serif;
+}
+.border {
+position: absolute;
+bottom: 0;
+left: 0;
+height: 2px;
+width: 100%;
+background: #0077FF;
+transform: scaleX(0);
+transform-origin: 0 0;
+transition: all .15s ease;
+}
+
+input {
+font-family: 'Open Sans Condensed', sans-serif;
+-webkit-appearance: none;
+width: 100%;
+border: 0;
+/* font-family: inherit; */
+padding: 12px 0;
+height: 48px;
+font-size: 16px;
+font-weight: 500;
+border-bottom: 2px solid #C8CCD4;
+background: none;
+border-radius: 0;
+color: #fff;
+transition: all .15s ease;
+}
+
+input:hover {
+/* background: rgba(34, 50, 84, .3); */
+}
+
+input:not(:placeholder-shown) + span {
+color: #5a667f;
+transform: translateY(-26px) scale(0.75);
+}
+
+input:focus {
+background: none;
+outline: none;
+font-size: 26px;
+}
+
+input:focus + span {
+color: #0077FF;
+transform: translateY(-26px) scale(.75);
+}
+
+input:focus + span + .border {
+  transform: scaleX(1);
+}
+
+input:-internal-autofill-selected {
+  background:none;
+  background-image:url('');
 }
 
 /* #endregion player input section */
@@ -104,18 +187,24 @@ body {
 
 /* #region player information screen */
 
-.player-info-container {
-  display: flex;
-  padding: .5em .5em .5em .5em;
-  justify-content: space-around;
+footer {
   position: absolute;
   width: 500px;
   margin-left: -250px;
-  bottom: 0px;
+  bottom: -100px;
   left: 50%;
+  transition: all 1s;
+   overflow: hidden;
+}
+
+.player-info-container {
+  transition: all 1s;
+  display: flex;
+  padding: .5em .5em .5em .5em;
+  justify-content: space-around;
   background: #231f20;
-  border-top-right-radius: 25px;
-  border-top-left-radius: 25px;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, .5);
 }
 

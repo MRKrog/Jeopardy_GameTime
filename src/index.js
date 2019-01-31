@@ -72,11 +72,10 @@ let playerThreeScore = $('#playerThree-Score');
 function startButton(event){
   event.preventDefault();
   console.log('Gogogo');
-
   // condition to check if there is three players
-
   newGame.createPlayers();
-  // newGame.createRounds()
+
+  newGame.createRounds();
 
 
   // append player info container
@@ -84,8 +83,8 @@ function startButton(event){
 
   // create jeporady board / append that shit
 
-
 }
+
 
 
 
@@ -97,6 +96,9 @@ function startButton(event){
 var categoriesValueIdArray = Object.values(Data.categories)
 // console.log(categoriesValueIdArray)
 
+
+
+
 // capitalized category Array = UNITED STATES HISTORY
 var capitalizedCategoryArray = Object.keys(Data.categories).map((element) =>{
   return element.replace(/([a-z])([A-Z])/g, '$1 $2').toUpperCase()
@@ -105,13 +107,15 @@ var capitalizedCategoryArray = Object.keys(Data.categories).map((element) =>{
 
 
 
+
 // Can grab specific categories of array
 var clueObject = Object.values(Data.clues)
 
-let newClue = clueObject.filter(arr => {
-  return arr.categoryId === 2
+window.newClue = clueObject.filter(arr => {
+  return arr.categoryId === 2;
 })
 console.log(newClue)
+
 
 
 //key value pair of categories is capitalized below
@@ -120,3 +124,4 @@ var categoryCapitalWithValues = categoriesValueIdArray.reduce(function (acc, cur
 acc[capitalizedCategoryArray[index]] = curVal;
 return acc
 }, {})
+
