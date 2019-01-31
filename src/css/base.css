@@ -116,12 +116,25 @@ body {
 /* #region Action Button */
 
 .action-button-container {
-
+  position: absolute;
+  bottom: 0px;
+  right:0px;
 }
 
 .action-button-container button {
-
+  height: 100px;
+  outline:none;
+  width:100px;
+  border:none;
+  -moz-border-radius-bottomright: 50px 25px;
+  border-top-left-radius: 100px 100px;
+  background: radial-gradient( rgba(255, 0, 128, 0.8) 95%);
 }
+
+.action-button-container button::after {
+  content:"Start"
+}
+
 
 .play-btn {
   width: 100px;
