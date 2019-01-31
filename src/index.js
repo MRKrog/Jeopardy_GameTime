@@ -98,4 +98,16 @@ console.log(categoriesValueIdArray)
 var capitalizedCategoryArray = Object.keys(Data.categories).map((element) =>{
   return element.replace(/([a-z])([A-Z])/g, '$1 $2').toUpperCase()
 })
-console.log(captializedCategoryArray)
+console.log(captializedCategoryArray);
+
+
+
+// Can grab specific categories of array
+var clueObject = Object.values(data.clues)
+
+let newClue = clueObject.filter(arr => {
+  return arr.categoryId === 2
+})
+console.log(newClue)
+
+
