@@ -87,15 +87,24 @@ function startButton(event){
 
 
 
+
+
+// console.log(categoryCapitalWithValues)
+
+
 // CategoriesValueIdArray = [1 - 10]]
 var categoriesValueIdArray = Object.values(Data.categories)
-console.log(categoriesValueIdArray)
+// console.log(categoriesValueIdArray)
 
-// captialized category Array = UNITED STATES HISTORY
-window.capitalizedCategoryArray = Object.keys(Data.categories).map((element) =>{
+
+
+
+// capitalized category Array = UNITED STATES HISTORY
+var capitalizedCategoryArray = Object.keys(Data.categories).map((element) =>{
   return element.replace(/([a-z])([A-Z])/g, '$1 $2').toUpperCase()
 })
-console.log(capitalizedCategoryArray);
+// console.log(captializedCategoryArray);
+
 
 
 
@@ -108,4 +117,11 @@ window.newClue = clueObject.filter(arr => {
 console.log(newClue)
 
 
-console.log(Data);
+
+//key value pair of categories is capitalized below
+
+var categoryCapitalWithValues = categoriesValueIdArray.reduce(function (acc, curVal, index) {
+acc[capitalizedCategoryArray[index]] = curVal;
+return acc
+}, {})
+

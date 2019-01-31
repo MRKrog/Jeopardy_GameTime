@@ -2,7 +2,7 @@ import Player from './Player.js';
 import DomUpdates from './domUpdates.js';
 
 class Game {
-  constructor(round){
+  constructor(round = 1){
     this.round = round || 0;
   }
 
