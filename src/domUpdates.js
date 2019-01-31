@@ -15,6 +15,7 @@ export default {
   },
 
   buildScoreBoard: function(){
+
     $('footer').append(
       `<section class="player-info-container">
         <div class="player-info">
@@ -33,14 +34,60 @@ export default {
     ).animate({'bottom': '0px'}, 500);
 
     $('.game-title').fadeOut(500, function(){ $(this).remove();});
-    $('.form-selection').fadeOut(500, function(){ $(this).remove();});
+    $('.form-selection').fadeOut(500, function(){$(this).remove();});
 
-    //create board
+    $('#startBtn').attr('data-after','Quit');
 
   },
 
-  buildGameBoard: function(){
+  //create board
+  buildGameBoard: function(round){
+    console.log(round);
 
-  }
+    if(round === '1'){
+      console.log('build round one');
+    }
+
+    let boardGame = $(`
+      <article class="question-container">
+        <section class="question-column">
+          <div class="question-title"><h3>United States History</h3></div>
+          <div class="card">$100</div>
+          <div class="card">$200</div>
+          <div class="card">$300</div>
+          <div class="card">$400</div>
+        </section>
+        <section class="question-column">
+          <div class="question-title"><h3>Life Sciences</h3></div>
+          <div class="card">$100</div>
+          <div class="card">$200</div>
+          <div class="card">$300</div>
+          <div class="card card-disabled">$400</div>
+        </section>
+        <section class="question-column">
+          <div class="question-title"><h3>United States History</h3></div>
+          <div class="card card-disabled">$100</div>
+          <div class="card">$200</div>
+          <div class="card">$300</div>
+          <div class="card">$400</div>
+        </section>
+        <section class="question-column">
+          <div class="question-title"><h3>United States History</h3></div>
+          <div class="card">$100</div>
+          <div class="card card-disabled">$200</div>
+          <div class="card">$300</div>
+          <div class="card">$400</div>
+        </section>
+      </article>
+    `)
+
+    $('body').prepend(boardGame)
+
+    boardGame.fadeIn(2000);
+
+    // $('body').prepend(`
+    //
+    // `).fadeIn(2000)
+  },
 
 }
