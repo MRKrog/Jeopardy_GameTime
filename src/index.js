@@ -64,6 +64,8 @@ let playerThreeName = $('#nameThree-title');
 let playerThreeScore = $('#playerThree-Score');
 
 
+// Starts New Game
+// Creating Three Arrays for the three rounds
 
 function startButton(event){
   event.preventDefault();
