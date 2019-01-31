@@ -111,66 +111,65 @@ body {
 }
 
 span.label {
-font-family: 'Roboto', sans-serif;
-font-size: .8em;
-position: absolute;
-top: 16px;
-left: 0;
-font-size: 22px;
-color: #fff;
-font-weight: 500;
-transform-origin: 0 0;
-transition: all .2s ease;
-text-transform: uppercase;
-font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-size: .8em;
+  position: absolute;
+  top: 16px;
+  left: 0;
+  font-size: 22px;
+  color: #fff;
+  font-weight: 500;
+  transform-origin: 0 0;
+  transition: all .2s ease;
+  text-transform: uppercase;
+  font-family: 'Open Sans Condensed', sans-serif;
 }
 .border {
-position: absolute;
-bottom: 0;
-left: 0;
-height: 2px;
-width: 100%;
-background: #0077FF;
-transform: scaleX(0);
-transform-origin: 0 0;
-transition: all .15s ease;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: #0077FF;
+  transform: scaleX(0);
+  transform-origin: 0 0;
+  transition: all .15s ease;
 }
 
 input {
-font-family: 'Open Sans Condensed', sans-serif;
--webkit-appearance: none;
-width: 100%;
-border: 0;
-/* font-family: inherit; */
-padding: 12px 0;
-height: 48px;
-font-size: 16px;
-font-weight: 500;
-border-bottom: 2px solid #C8CCD4;
-background: none;
-border-radius: 0;
-color: #fff;
-transition: all .15s ease;
+  font-family: 'Open Sans Condensed', sans-serif;
+  -webkit-appearance: none;
+  width: 100%;
+  border: 0;
+  padding: 12px 0;
+  height: 48px;
+  font-size: 16px;
+  font-weight: 500;
+  border-bottom: 2px solid #C8CCD4;
+  background: none;
+  border-radius: 0;
+  color: #fff;
+  transition: all .15s ease;
 }
 
 input:hover {
-/* background: rgba(34, 50, 84, .3); */
+  /* background: rgba(34, 50, 84, .3); */
 }
 
 input:not(:placeholder-shown) + span {
-color: #5a667f;
-transform: translateY(-26px) scale(0.75);
+  color: #5a667f;
+  transform: translateY(-26px) scale(0.75);
 }
 
 input:focus {
-background: none;
-outline: none;
-font-size: 26px;
+  background: none;
+  outline: none;
+  font-size: 26px;
 }
 
 input:focus + span {
-color: #0077FF;
-transform: translateY(-26px) scale(.75);
+  color: #0077FF;
+  transform: translateY(-26px) scale(.75);
 }
 
 input:focus + span + .border {
@@ -179,7 +178,6 @@ input:focus + span + .border {
 
 input:-internal-autofill-selected {
   background:none;
-  background-image:url('');
 }
 
 /* #endregion player input section */

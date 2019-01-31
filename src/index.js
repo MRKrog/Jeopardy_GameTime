@@ -20,42 +20,22 @@ import Game from './Game.js';
 // import Clues from './Clues.js';
 // import Round from './Round.js';
 
-import Box from './Box.js'; // Test Class
+import Box from './Box.js'; // Test Class Example
 // don't have to declare every import here, per example game can house import player.js
 
 // ****************************
 // Create Objects - Instantiate Game
 const newGame = new Game();
 
-// const dataSet = Object.values(Data).splice(1);
-// console.log(dataSet);
-console.log(Data)
 
+// ****************************
+// Event listeners
+$('#startBtn').on('click', startGame);
 
 
 
 // ****************************
-// Event listeners
-$('#startBtn').on('click', startButton);
-
-
-
-
-const box = new Box();
-box.increaseHeight(100);
-console.log('This is the JavaScript entry file - your code begins here.');
-
-
-// Tell webpack to use javascript files
-
-
-// import './Clue.js';
-
-// import Game from './Game.js';
-
-
-
-// let playerOneInput = $('#nameOne-input');
+// Global Variables
 let playerOneName = $('#nameOne-title');
 let playerOneScore = $('#playerOne-Score');
 
@@ -66,17 +46,13 @@ let playerThreeName = $('#nameThree-title');
 let playerThreeScore = $('#playerThree-Score');
 
 
-// Starts New Game
-// Creating Three Arrays for the three rounds
 
-function startButton(event){
-  event.preventDefault();
-  console.log('Gogogo');
+
+function startGame(event){
+
   // condition to check if there is three players
   newGame.createPlayers();
-
   newGame.createRounds();
-
 
   // append player info container
 
@@ -89,13 +65,35 @@ function startButton(event){
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+// ********************************************************
+// Misc
+const box = new Box();
+box.increaseHeight(100);
+// console.log('This is the JavaScript entry file - your code begins here.');
+
+
+
+
+
+// ********************************************************
+// Methods to build out Array Test
+
+
 // console.log(categoryCapitalWithValues)
-
-
 // CategoriesValueIdArray = [1 - 10]]
 var categoriesValueIdArray = Object.values(Data.categories)
 // console.log(categoriesValueIdArray)
-
 
 
 
@@ -104,7 +102,6 @@ var capitalizedCategoryArray = Object.keys(Data.categories).map((element) =>{
   return element.replace(/([a-z])([A-Z])/g, '$1 $2').toUpperCase()
 })
 // console.log(captializedCategoryArray);
-
 
 
 
@@ -117,6 +114,9 @@ window.newClue = clueObject.filter(arr => {
 console.log(newClue)
 
 
+// const dataSet = Object.values(Data).splice(1);
+// console.log(dataSet);
+// console.log(Data)
 
 //key value pair of categories is capitalized below
 
@@ -124,4 +124,3 @@ var categoryCapitalWithValues = categoriesValueIdArray.reduce(function (acc, cur
 acc[capitalizedCategoryArray[index]] = curVal;
 return acc
 }, {})
-

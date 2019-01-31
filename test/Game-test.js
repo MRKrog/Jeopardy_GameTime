@@ -1,3 +1,4 @@
+
 import chai from 'chai';
 const expect = chai.expect;
 
@@ -14,8 +15,8 @@ import Game from '../src/Game.js'
 describe('Game', function () {
 
   it('Should return true', function() {
-  var game = new Game()
-    
+    var game = new Game()
+
     expect(true).to.equal(true);
   });
 
