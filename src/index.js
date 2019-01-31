@@ -10,6 +10,11 @@ import './css/base.css';
 // Import Images - Tell webpack to use an image (link to it in index.html)
 import './images/turing-logo.png';
 
+
+import $ from 'jquery';
+window.jQuery = $;
+window.$ = $;
+
 // ****************************
 // Import Classes/Objects
 import Data from './data.js';
@@ -36,22 +41,25 @@ $('#startBtn').on('click', startGame);
 
 // ****************************
 // Global Variables
-let playerOneName = $('#nameOne-title');
-let playerOneScore = $('#playerOne-Score');
+// let playerOneName = $('#nameOne-title');
+// let playerOneScore = $('#playerOne-Score');
+//
+// let playerTwoName = $('#nameTwo-title');
+// let playerTwoScore = $('#playerTwo-Score');
+//
+// let playerThreeName = $('#nameThree-title');
+// let playerThreeScore = $('#playerThree-Score');
 
-let playerTwoName = $('#nameTwo-title');
-let playerTwoScore = $('#playerTwo-Score');
-
-let playerThreeName = $('#nameThree-title');
-let playerThreeScore = $('#playerThree-Score');
 
 
 
 
 function startGame(event){
-
+  let nameOne = $('#nameOne-input').val();
+  let nameTwo = $('#nameOne-input').val();
+  let nameThree = $('#nameOne-input').val();
   // condition to check if there is three players
-  newGame.createPlayers();
+  newGame.createPlayers(nameOne, nameTwo, nameThree);
   newGame.createRounds();
 
   // append player info container

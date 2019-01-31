@@ -1,9 +1,9 @@
 import DomUpdates from './domUpdates.js';
 
 class Player {
-  constructor(name = 'MikeK', score = 0){
-    this.name = name; 
-    this.score = score;
+  constructor(name, score){
+    this.name = name || 'MikeK';
+    this.score = score || 0;
   }
 
 

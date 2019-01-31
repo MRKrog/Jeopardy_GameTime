@@ -27,7 +27,7 @@ html {
 }
 
 body {
-  background-image: url(./file.png);
+  background-image: url(./jpBackground.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
@@ -43,6 +43,7 @@ body {
 /* #region player input section */
 
 .game-title {
+  padding: 5em;
   margin: 0;
   text-align: center;
 }
@@ -114,7 +115,7 @@ span.label {
   font-family: 'Roboto', sans-serif;
   font-size: .8em;
   position: absolute;
-  top: 16px;
+  top: 8px;
   left: 0;
   font-size: 22px;
   color: #fff;
@@ -143,7 +144,7 @@ input {
   border: 0;
   padding: 12px 0;
   height: 48px;
-  font-size: 16px;
+  font-size: 26px;
   font-weight: 500;
   border-bottom: 2px solid #C8CCD4;
   background: none;
@@ -248,6 +249,7 @@ footer {
   height: 100px;
   outline:none;
   position: relative;
+  color:#fff;
   width:100px;
   border:none;
   cursor: pointer;
@@ -258,7 +260,8 @@ footer {
 }
 
 .action-button-container button::after {
-  content: "Start";
+  /* content: "Start"; */
+  content: attr(data-after);
   position: absolute;
   top: 50%;
   font-size: 1.2em;
@@ -273,3 +276,87 @@ footer {
 }
 
 /* #endregion Action Button */
+
+
+
+/* #region Jeporady Game Board Styles */
+
+.game-container {
+  padding: 3em 0 0 0;
+  width: 100%;
+}
+
+.game-title {}
+
+.game-title h1 {
+  color: #fff;
+  font-family: 'Lora', serif;
+  font-size: 2.5em;
+  letter-spacing: 0.05em;
+  margin: 0;
+  text-align: center;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.question-container {
+  display: flex;
+  padding: 3em;
+  align-items: flex-end;
+}
+
+.question-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 25%;
+  padding: 0 5px;
+}
+
+.question-title {
+  padding-bottom: 1em;
+}
+
+.question-title h3 {
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1;
+  margin: 0;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: 100;
+  letter-spacing: .03em;
+}
+
+.card {
+  text-align: center;
+  color: #faec62;
+  font-family: 'Roboto Condensed', sans-serif;
+  background: #247dac;
+  font-size: 2.5em;
+  line-height: 2.5;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  letter-spacing: .04em;
+  cursor: pointer;
+  transition: all .5s ease;
+  box-shadow: -2px 1px 2px 0px rgba(0, 0, 0, .1);
+}
+
+.card-disabled {
+  background:#2688bb;
+  color:#2581b2;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.card:hover {
+  background:#2688bb;
+  color:#2581b2;
+  transition: all .5 ease;
+  box-shadow: none;
+}
+
+
+/* #endregion Jeporady Game Board Styles */
