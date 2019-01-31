@@ -16,7 +16,7 @@ import Data from './data.js';
 import Game from './Game.js';
 
 // import DomUpdates from './domUpdates.js';
-import Player from './Player.js';
+// import Player from './Player.js';
 // import Clues from './Clues.js';
 // import Round from './Round.js';
 
@@ -73,13 +73,9 @@ function startButton(event){
 
   // condition to check if there is three players
 
-  window.playerOne = new Player($('#nameOne-input').val(), 30);
-  window.playerTwo = new Player($('#nameTwo-input').val(), 20);
-  window.playerThree = new Player($('#nameThree-input').val(), 10);
+  newGame.createPlayers();
+  // newGame.createRounds()
 
-  playerOne.playerSetUp(playerOneName, playerOneScore);
-  playerTwo.playerSetUp(playerTwoName, playerTwoScore);
-  playerThree.playerSetUp(playerThreeName, playerThreeScore);
 
   // append player info container
 
