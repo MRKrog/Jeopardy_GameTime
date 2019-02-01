@@ -13,6 +13,10 @@ class Game {
     this.playerArray = []; // Equals all the players instances
     this.roundsArray = []; //
     this.allClues = []; // Equals all the clues together
+
+    
+    this.board = new Round();
+
   }
 
 
@@ -22,8 +26,8 @@ class Game {
     this.createCategories();
 
 
-    let instanceRound = new Round();
-    instanceRound.buildRounds(this.roundsArray, this.allClues);// pushed through to Round
+    // let instanceRound = new Round();
+    this.board .buildRounds(this.roundsArray, this.allClues);// pushed through to Round
 
     // DomUpdates.buildGameBoard(this.round, []);
   };
