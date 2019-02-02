@@ -58,7 +58,7 @@ class Rounds {
     }, []);
 
     console.log('ReduceArr', reducedArr);
-    initalizeGame.roundsArray.push(reducedArr);
+    game.roundsArray.push(reducedArr);
   }
 
 }

@@ -7,7 +7,6 @@ import DomUpdates from './domUpdates.js';
 
 class Game {
   constructor(){
-
     // this.round = 0;
     // this.winner = winner || false;
     // this.roundNumber = this.roundNumber
@@ -16,7 +15,6 @@ class Game {
     this.categoryArray = []; // Equals all the categories together
     this.allClues = []; // Equals all the clues together
     this.roundsArray = []; // Equals all the rounds
-
 
     this.currentRound = new Rounds(1);
 
@@ -48,14 +46,15 @@ class Game {
 
   createCategories(){
     Object.entries(Data.categories).forEach(category => {
-      this.categoryArray.push(new Category(category[0], category[1]));
+      this.categoryArray.push(new Category(category[0].replace(/([a-z])([A-Z])/g, '$1 $2').toUpperCase(), category[1]));
     });
   };
 
-
-
-
-
+  selectedCard(cardClicked){
+    let cardId = cardClicked.target.id;
+    let card = roundOne[cardId];
+    DomUpdates.showQuestion(card)
+  };
 
 
 
