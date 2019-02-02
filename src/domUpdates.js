@@ -1,6 +1,5 @@
 import $ from 'jquery';
 
-
 export default {
   // All Changes that are being made to the DOM go here
 
@@ -11,10 +10,6 @@ export default {
 
   displayHeight: function(newHeight) {
     // document.querySelector('#box-height-display').innerText = newHeight;
-  },
-
-  displayWidth: function() {
-
   },
 
   buildScoreBoard: function(playerArray){
@@ -44,16 +39,14 @@ export default {
   },
 
   //create board
-  buildGameBoard: function(round){
-
+  buildGameBoard: function(){
     let innerBoard = $('.question-container');
-
-    window.roundOne = (game.roundsArray[0]).flat()
-    console.log('flatArray', roundOne);
+    let i = round.stage;
+    let thisRound = round.questionsArray[i]
 
     let counter = 0;
 
-    game.roundsArray[0].forEach((arr, index, arrLength) => {
+    game.roundsArray[i].forEach((arr, index, arrLength) => {
       innerBoard.append(`
         <section class="question-column" id="col_${index}">
           <div class="question-title"><h3>${game.categoryArray[index].title}</h3></div>
@@ -64,20 +57,32 @@ export default {
         counter++
       });
     });
-
-
-
   },
 
-  showQuestion: function(thisCard){
-
+  showQuestion: function(clue){
+    console.log(clue);
     $('body').prepend(`
-      <div class="card-question-container">
-        <h2>${thisCard.question}</h2>
-        <h4>${thisCard.answer}</h4>
-      </div>
+      <section class="answer-container">
+        <div class="answer-question">
+          <h2>${clue.question}</h2>
+          <section class="select-answer">
+            <button class="answerBtn">test</button>
+            <button class="answerBtn">what</button>
+            <button class="answerBtn">${clue.answer}</button>
+            <button class="answerBtn">boss</button>
+          </section>
+        </div>
+      </section>
     `);
+  },
 
-  }
+  correctGuess: function(){
+    console.log('in correct');
+  },
+
+  wrongGuess: function(){
+    console.log('in wrong');
+  },
+
 
 }

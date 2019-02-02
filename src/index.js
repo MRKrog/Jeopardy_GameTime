@@ -19,11 +19,12 @@ window.$ = jQuery;
 // Import Classes/Objects
 import Data from './data.js';
 import Game from './Game.js';
+import Rounds from './Round.js';
 
 // import DomUpdates from './domUpdates.js';
 // import Player from './Player.js';
 // import Clues from './Clues.js';
-// import Round from './Round.js';
+
 
 // import Box from './Box.js'; // Test Class Example
 // don't have to declare every import here, per example game can house import player.js
@@ -40,23 +41,20 @@ import Game from './Game.js';
 // ****************************
 // Event listeners
 $('#startBtn').on('click', startGameBtn);
+// answerBtn.on('click', checkAnswer);
 
 
 
 function startGameBtn(event){
-  window.game = new Game();
+  window.game = new Game(); // Initliazes New Game
   game.startGame();
-  $('.card').on('click', showQuestion);
-}
+  $('.card').on('click', questionClicked);
+};
 
-function showQuestion(event){
-
-  game.selectedCard(event);
-
-
-
-}
-
+function questionClicked(event){
+  game.getClue(event);
+  $('.answerBtn').on('click', round.checkAnswer);
+};
 
 
 
