@@ -41,23 +41,36 @@ describe ('Clue', function () {
     expect(clue.categoryId).to.equal(10);
   });
 
-    it('should have a different categoryId', function() {
-      var clue = new Clues('Never give up', 'music videos');
+   it.skip('should have a different categoryId', function() {
+      var clue = new Clues('What do you say when you attempt to shoot a balled up paper into the trashcan', 'Curry with the Shot boy', 300, 8);
 
-    expect(clue.categoryId).to.equal(10);
+    expect(clue.categoryId).to.equal(8);
   });
 
-   it('should have a default pointValue', function() {
+   it.skip('should have a default pointValue', function() {
       var clue = new Clues();
 
     expect(clue.pointValue).to.equal(100);
   });
 
-   it('should have a default dailyDble', function() {
-      var clue = new Clues('Never give up', 'music videos', 11, 400);
+    it.skip('should have a different pointValue', function() {
+    var clue = new Clues(400);
+
+    expect(clue.pointValue).to.equal(400);
+  });
+
+   it.skip('should have a default dailyDble', function() {
+      var clue = new Clues('Never give up', 'music videos', 2, 400);
 
     expect(clue.dailyDble).to.equal(4000);
   });
+
+   it.skip('should have a default dailyDble', function() {
+   var clue = new Clues('Never give up', 'music videos', 1, 300, 2000);
+
+    expect(clue.dailyDble).to.equal(2000);
+  });
+
 
 
 });
