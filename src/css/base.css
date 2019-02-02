@@ -278,7 +278,6 @@ footer {
 /* #endregion Action Button */
 
 
-
 /* #region Jeporady Game Board Styles */
 
 .game-container {
@@ -301,8 +300,9 @@ footer {
 
 .question-container {
   display: flex;
-  padding: 3em;
+  padding: 0em 3em 3em 3em;
   align-items: flex-end;
+  height: 80vh;
 }
 
 .question-column {
@@ -319,12 +319,12 @@ footer {
 
 .question-title h3 {
   color: #fff;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
   line-height: 1;
   margin: 0;
   text-align: center;
-  font-size: 1.2em;
-  font-weight: 100;
+  font-size: 1.1em;
+  font-weight: bold;
   letter-spacing: .03em;
 }
 
@@ -358,5 +358,15 @@ footer {
   box-shadow: none;
 }
 
+
+/* #endregion Jeporady Game Board Styles */
+
+
+
+/* #region Jeporady Game Board Styles */
+
+.card-question-container {
+
+}
 
 /* #endregion Jeporady Game Board Styles */

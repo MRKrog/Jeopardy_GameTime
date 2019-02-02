@@ -1,4 +1,4 @@
-// import DomUpdates from './domUpdates.js';
+import DomUpdates from './domUpdates.js';
 import Game from './Game.js';
 // import Data from './data.js';
 // import Clues from './Clue.js';
@@ -40,7 +40,7 @@ class Rounds {
       initialArr.push(newClue);
     }
 
-    // console.log('Initial Array ', initialArr);
+    console.log('Initial Array ', initialArr);
 
     let reducedArr = initialArr.reduce((acc, indy) => {
 
@@ -55,8 +55,10 @@ class Rounds {
 
       acc.push(subArr);
       return acc;
-    }, [])
+    }, []);
+
     console.log('ReduceArr', reducedArr);
+    game.roundsArray.push(reducedArr);
   }
 
 }

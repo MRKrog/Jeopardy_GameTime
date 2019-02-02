@@ -18,6 +18,9 @@ export default {
   },
 
   buildScoreBoard: function(playerArray){
+    $('.game-title').fadeOut(200, function(){ $(this).remove();});
+    $('.form-selection').fadeOut(200, function(){$(this).remove();});
+
     $('footer').append(
       `<section class="player-info-container">
         <div class="player-info">
@@ -35,60 +38,46 @@ export default {
       </section>`
     ).animate({'bottom': '0px'}, 500);
 
-    $('.game-title').fadeOut(500, function(){ $(this).remove();});
-    $('.form-selection').fadeOut(500, function(){$(this).remove();});
 
     $('#startBtn').attr('data-after','Quit');
+    $('body').prepend(`<article class="question-container"></article>`);
   },
 
   //create board
   buildGameBoard: function(round){
-    console.log(round);
 
-    if(round === '1'){
-      console.log('build round one');
-    }
+    let innerBoard = $('.question-container');
 
-    let boardGame = $(`
-      <article class="question-container">
-        <section class="question-column">
-          <div class="question-title"><h3>United States History</h3></div>
-          <div class="card">$100</div>
-          <div class="card">$200</div>
-          <div class="card">$300</div>
-          <div class="card">$400</div>
-        </section>
-        <section class="question-column">
-          <div class="question-title"><h3>Life Sciences</h3></div>
-          <div class="card">$100</div>
-          <div class="card">$200</div>
-          <div class="card">$300</div>
-          <div class="card card-disabled">$400</div>
-        </section>
-        <section class="question-column">
-          <div class="question-title"><h3>United States History</h3></div>
-          <div class="card card-disabled">$100</div>
-          <div class="card">$200</div>
-          <div class="card">$300</div>
-          <div class="card">$400</div>
-        </section>
-        <section class="question-column">
-          <div class="question-title"><h3>United States History</h3></div>
-          <div class="card">$100</div>
-          <div class="card card-disabled">$200</div>
-          <div class="card">$300</div>
-          <div class="card">$400</div>
-        </section>
-      </article>
-    `)
+    window.roundOne = (game.roundsArray[0]).flat()
+    console.log('flatArray', roundOne);
 
-    $('body').prepend(boardGame)
+    let counter = 0;
 
-    boardGame.fadeIn(2000);
+    game.roundsArray[0].forEach((arr, index, arrLength) => {
+      innerBoard.append(`
+        <section class="question-column" id="col_${index}">
+          <div class="question-title"><h3>${game.categoryArray[index].title}</h3></div>
+        </section>`
+      );
+      arr.forEach((subArr, subIndex) => {
+        $(`#col_${index}`).append(`<div class="card" id="${counter}">$${subArr.pointValue}</div>`);
+        counter++
+      });
+    });
 
-    // $('body').prepend(`
-    //
-    // `).fadeIn(2000)
+
+
   },
+
+  showQuestion: function(thisCard){
+
+    $('body').prepend(`
+      <div class="card-question-container">
+        <h2>${thisCard.question}</h2>
+        <h4>${thisCard.answer}</h4>
+      </div>
+    `);
+
+  }
 
 }

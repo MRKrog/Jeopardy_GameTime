@@ -6,7 +6,6 @@ class Category {
     this.title = title;
     this.category = category;
   }
-
 }
 
 export default Category;

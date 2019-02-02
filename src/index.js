@@ -25,7 +25,7 @@ import Game from './Game.js';
 // import Clues from './Clues.js';
 // import Round from './Round.js';
 
-import Box from './Box.js'; // Test Class Example
+// import Box from './Box.js'; // Test Class Example
 // don't have to declare every import here, per example game can house import player.js
 
 // ****************************
@@ -44,20 +44,16 @@ $('#startBtn').on('click', startGameBtn);
 
 
 function startGameBtn(event){
-  let initalizeGame = new Game();
-  initalizeGame.startGame();
-  // let nameOne = $('#nameOne-input').val();
-  // let nameTwo = $('#nameOne-input').val();
-  // let nameThree = $('#nameOne-input').val();
+  window.game = new Game();
+  game.startGame();
+  $('.card').on('click', showQuestion);
+}
 
-  // condition to check if there is three players
+function showQuestion(event){
 
-  // newGame.createRounds();
-
-  // append player info container
+  game.selectedCard(event);
 
 
-  // create jeporady board / append that shit
 
 }
 
@@ -79,55 +75,11 @@ function startGameBtn(event){
 
 
 
-// ********************************************************
-// Misc
-const box = new Box();
-box.increaseHeight(100);
-// console.log('This is the JavaScript entry file - your code begins here.');
 
-
-
-
-
-// ********************************************************
-// Methods to build out Array Test
-
-
-
-
-// console.log(categoryCapitalWithValues)
-// CategoriesValueIdArray = [1 - 10]]
-var categoriesValueIdArray = Object.values(Data.categories)
-// console.log(categoriesValueIdArray)
-
-
-
-// capitalized category Array = UNITED STATES HISTORY
-var capitalizedCategoryArray = Object.keys(Data.categories).map((element) =>{
-  return element.replace(/([a-z])([A-Z])/g, '$1 $2').toUpperCase()
-})
-// console.log(captializedCategoryArray);
-
-
-
-// Can grab specific categories of array
-var clueObject = Object.values(Data.clues)
-// console.log(clueObject);
-
-window.newClue = clueObject.filter(arr => {
-  return arr.categoryId === 2;
-})
-// console.log(newClue)
-
-
-// const dataSet = Object.values(Data).splice(1);
-// console.log(dataSet);
-// console.log(Data)
-
-//key value pair of categories is capitalized below
-
-var categoryCapitalWithValues = categoriesValueIdArray.reduce(function (acc, curVal, index) {
-acc[capitalizedCategoryArray[index]] = curVal;
-return acc
-}, {})
-// console.log(categoriesValueIdArray);
+// // ********************************************************
+// // Misc
+// const box = new Box();
+// box.increaseHeight(100);
+// // console.log('This is the JavaScript entry file - your code begins here.');
+//
+//
