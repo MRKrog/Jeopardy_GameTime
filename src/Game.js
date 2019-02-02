@@ -1,6 +1,7 @@
 import Player from './Player.js';
 import Clues from './Clue.js';
-import Round from './Round.js';
+import Rounds from './Round.js';
+import Category from './Category.js';
 import Data from './data.js';
 import DomUpdates from './domUpdates.js';
 
@@ -11,11 +12,12 @@ class Game {
     // this.roundNumber = this.roundNumber
     this.activePlayer = 1;
     this.playerArray = []; // Equals all the players instances
-    this.roundsArray = []; //
+    this.categoryArray = []; // Equals all the categories together
     this.allClues = []; // Equals all the clues together
+    this.roundsArray = []; // Equals all the rounds
 
-    
-    this.board = new Round();
+
+    this.currentRound = new Rounds(1);
 
   }
 
@@ -26,8 +28,7 @@ class Game {
     this.createCategories();
 
 
-    // let instanceRound = new Round();
-    this.board .buildRounds(this.roundsArray, this.allClues);// pushed through to Round
+    this.currentRound.buildRounds(this.categoryArray, this.allClues);// pushed through to Round
 
     // DomUpdates.buildGameBoard(this.round, []);
   };
@@ -46,16 +47,9 @@ class Game {
   };
 
   createCategories(){
-    // console.log(Data.categories[2]);
     Object.entries(Data.categories).forEach(category => {
-      // console.log(category[0]);
-      // console.log(category[1]);
-      this.roundsArray.push(new Round(category[0], category[1]));
+      this.categoryArray.push(new Category(category[0], category[1]));
     });
-    // Round.changeCat(this.allClues);
-    // console.log(this.roundsArray);
-    //
-    // this.randomizeCategories();
   };
 
 

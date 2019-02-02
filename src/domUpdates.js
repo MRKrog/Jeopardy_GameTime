@@ -18,8 +18,6 @@ export default {
   },
 
   buildScoreBoard: function(playerArray){
-
-
     $('footer').append(
       `<section class="player-info-container">
         <div class="player-info">
