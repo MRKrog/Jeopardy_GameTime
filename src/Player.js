@@ -9,10 +9,6 @@ class Player {
 
   playerSetUp(name, score){
     console.log('in player set up');
-    // dom.testObj();
-    // name.text(this.name);
-    // score.text(this.score);
-    // playerOneName.text(playerOneInput.val())
   }
 
 }

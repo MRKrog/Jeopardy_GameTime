@@ -3,10 +3,9 @@ import Game from './Game.js';
 // import Data from './data.js';
 // import Clues from './Clue.js';
 
-class Round {
-  constructor(title, category){
-    this.title = title;
-    this.category = category;
+class Rounds {
+  constructor(round = 0){
+    this.round = round;
   }
 
   buildRounds(allCategory, allClues){
@@ -41,7 +40,7 @@ class Round {
       initialArr.push(newClue);
     }
 
-    console.log('Initial Array ', initialArr);
+    // console.log('Initial Array ', initialArr);
 
     let reducedArr = initialArr.reduce((acc, indy) => {
 
@@ -55,15 +54,11 @@ class Round {
       };
 
       acc.push(subArr);
-      console.log(subArr);
       return acc;
-
-    }, []);
-
-    // console.log('ReduceArr', reducedArr);
-
+    }, [])
+    console.log('ReduceArr', reducedArr);
   }
 
 }
 
-export default Round;
+export default Rounds;
