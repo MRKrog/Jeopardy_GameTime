@@ -15,7 +15,6 @@ class Game {
     this.categoryArray = []; // Equals all the categories together
     this.allClues = []; // Equals all the clues together
     this.roundsArray = []; // Equals all the rounds
-
     this.currentRound = new Rounds(1);
 
   }
@@ -55,14 +54,6 @@ class Game {
     let card = roundOne[cardId];
     DomUpdates.showQuestion(card)
   };
-
-
-
-
-
-
-
-
 
 }
 

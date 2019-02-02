@@ -4,8 +4,8 @@ import Game from './Game.js';
 // import Clues from './Clue.js';
 
 class Rounds {
-  constructor(round = 0){
-    this.round = round;
+  constructor(round){
+    this.round = round || 0;
   }
 
   buildRounds(allCategory, allClues){
@@ -13,8 +13,8 @@ class Rounds {
     this.shuffle(allCategory);
     this.shuffle(allClues);
 
-    console.log('shuffled ', allCategory);
-    console.log('shuffled ', allClues);
+    console.log('shuffled Cat ', allCategory);
+    console.log('shuffled Clue', allClues);
 
     this.filterArr(allCategory, allClues);
 
