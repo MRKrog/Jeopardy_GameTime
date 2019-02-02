@@ -7,6 +7,7 @@ import DomUpdates from './domUpdates.js';
 
 class Game {
   constructor(){
+
     // this.round = 0;
     // this.winner = winner || false;
     // this.roundNumber = this.roundNumber
@@ -27,9 +28,8 @@ class Game {
     this.createClues();
     this.createCategories();
 
-
     this.currentRound.buildRounds(this.categoryArray, this.allClues);// pushed through to Round
-
+    DomUpdates.buildGameBoard();
     // DomUpdates.buildGameBoard(this.round, []);
   };
 

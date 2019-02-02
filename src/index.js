@@ -44,11 +44,9 @@ $('#startBtn').on('click', startGameBtn);
 
 
 function startGameBtn(event){
-  let initalizeGame = new Game();
+  window.initalizeGame = new Game();
   initalizeGame.startGame();
-  // let nameOne = $('#nameOne-input').val();
-  // let nameTwo = $('#nameOne-input').val();
-  // let nameThree = $('#nameOne-input').val();
+
 
   // condition to check if there is three players
 
