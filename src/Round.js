@@ -1,11 +1,14 @@
+import './index.js';
 import DomUpdates from './domUpdates.js';
 import Game from './Game.js';
 // import Data from './data.js';
 // import Clues from './Clue.js';
 
 class Rounds {
-  constructor(round = 0){
-    this.round = round;
+  constructor(stage){
+    this.stage = stage || 0;
+    this.currentAnswer = '';
+    this.questionsArray = []; // Stores the current clues for the round
   }
 
   buildRounds(allCategory, allClues){
@@ -27,7 +30,7 @@ class Rounds {
       array[i] = array[j];
       array[j] = temp;
     }
-  }
+  };
 
   filterArr(array, allClues){
 
@@ -38,9 +41,7 @@ class Rounds {
         return arr.categoryId === array[i].category;
       });
       initialArr.push(newClue);
-    }
-
-    console.log('Initial Array ', initialArr);
+    };
 
     let reducedArr = initialArr.reduce((acc, indy) => {
 
@@ -57,10 +58,25 @@ class Rounds {
       return acc;
     }, []);
 
-    console.log('ReduceArr', reducedArr);
     game.roundsArray.push(reducedArr);
-  }
+    this.questionsArray.push(reducedArr.flat())
+  };
 
-}
+
+  checkAnswer(event){
+    let userAnswer = $(event.target).text();
+    // console.log('user answer', userAnswer)
+    // console.log('card answer', round.currentAnswer)
+    userAnswer === round.currentAnswer ? DomUpdates.correctGuess() : DomUpdates.wrongGuess();
+    // if(userAnswer == round.currentAnswer){
+    //   console.log('correct');
+    //   DomUpdates.correct();
+    // } else {
+    //   console.log('wrong');
+    //
+    // }
+  };
+
+};
 
 export default Rounds;

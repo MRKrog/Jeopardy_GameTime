@@ -1,3 +1,4 @@
+import './index.js';
 import Player from './Player.js';
 import Clues from './Clue.js';
 import Rounds from './Round.js';
@@ -11,12 +12,10 @@ class Game {
     // this.winner = winner || false;
     // this.roundNumber = this.roundNumber
     this.activePlayer = 1;
-    this.playerArray = []; // Equals all the players instances
-    this.categoryArray = []; // Equals all the categories together
-    this.allClues = []; // Equals all the clues together
-    this.roundsArray = []; // Equals all the rounds
-
-    this.currentRound = new Rounds(1);
+    this.playerArray = []; // Stores all the players instances
+    this.categoryArray = []; // Stores all the categories together
+    this.allClues = []; // Stores all the clues together
+    this.roundsArray = []; // Stores all the rounds/game boards
 
   }
 
@@ -25,10 +24,9 @@ class Game {
     this.createPlayers();
     this.createClues();
     this.createCategories();
-
-    this.currentRound.buildRounds(this.categoryArray, this.allClues);// pushed through to Round
+    window.round = new Rounds(0); // Intializes New Round
+    round.buildRounds(this.categoryArray, this.allClues);// pushed through to Round
     DomUpdates.buildGameBoard();
-    // DomUpdates.buildGameBoard(this.round, []);
   };
 
   createPlayers(){
@@ -50,17 +48,12 @@ class Game {
     });
   };
 
-  selectedCard(cardClicked){
-    let cardId = cardClicked.target.id;
-    let card = roundOne[cardId];
-    DomUpdates.showQuestion(card)
+  getClue(event){
+    let cardId = event.target.id;
+    let card = round.questionsArray[round.stage];
+    round.currentAnswer = card[cardId].answer
+    DomUpdates.showQuestion(card[cardId]);
   };
-
-
-
-
-
-
 
 
 
