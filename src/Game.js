@@ -12,6 +12,7 @@ class Game {
     // this.winner = winner || false;
     // this.roundNumber = this.roundNumber
     this.activePlayer = 1;
+
     this.playerArray = []; // Stores all the players instances
     this.categoryArray = []; // Stores all the categories together
     this.allClues = []; // Stores all the clues together
@@ -54,8 +55,6 @@ class Game {
     round.currentAnswer = card[cardId].answer
     DomUpdates.showQuestion(card[cardId]);
   };
-
-
 
 }
 

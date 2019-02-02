@@ -16,8 +16,8 @@ class Rounds {
     this.shuffle(allCategory);
     this.shuffle(allClues);
 
-    console.log('shuffled ', allCategory);
-    console.log('shuffled ', allClues);
+    console.log('shuffled Cat ', allCategory);
+    console.log('shuffled Clue', allClues);
 
     this.filterArr(allCategory, allClues);
 

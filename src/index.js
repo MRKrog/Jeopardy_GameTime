@@ -12,8 +12,8 @@ import './images/turing-logo.png';
 
 
 import $ from 'jquery';
-window.jQuery = $;
-window.$ = $;
+import jQuery from 'jquery'
+window.$ = jQuery;
 
 // ****************************
 // Import Classes/Objects
