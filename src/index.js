@@ -52,9 +52,8 @@ function startGameBtn(event){
 };
 
 function questionClicked(event){
-  game.getClue(event);
+  game.getClue(event); //start clue point search and update
   $('.answerBtn').on('click', round.checkAnswer);
-  
 };
 
 

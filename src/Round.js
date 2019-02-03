@@ -8,19 +8,17 @@ class Rounds {
   constructor(stage){
     this.stage = stage || 0;
     this.currentAnswer = '';
+    this.pointValue = 0;
     this.questionsArray = []; // Stores the current clues for the round
+    this.cardCount = 16;
   }
 
   buildRounds(allCategory, allClues){
-
     this.shuffle(allCategory);
     this.shuffle(allClues);
-
-    console.log('shuffled Cat ', allCategory);
-    console.log('shuffled Clue', allClues);
-
     this.filterArr(allCategory, allClues);
-
+    // console.log('shuffled Cat ', allCategory);
+    // console.log('shuffled Clue', allClues);
   };
 
   shuffle(array) {
@@ -32,41 +30,52 @@ class Rounds {
     }
   };
 
-  filterArr(array, allClues){
+  filterArr(allCategory, allClues){
 
     const initialArr = [];
 
     for(let i = 0; i < 4; i++){
       let newClue = allClues.filter(arr => {
-        return arr.categoryId === array[i].category;
+        return arr.categoryId === allCategory[i].category;
       });
       initialArr.push(newClue);
     };
 
-    let reducedArr = initialArr.reduce((acc, indy) => {
-
+    let reducedArr = initialArr.reduce((acc, clueIndex) => {
       let subArr = [];
-
       for(var i = 1; i < 5; i++){
-        let found = indy.find(element => {
+        let foundClue = clueIndex.find(element => {
           return element.pointValue === 100 * i;
         });
-        subArr.push(found);
+        subArr.push(foundClue);
       };
-
       acc.push(subArr);
       return acc;
     }, []);
 
     game.roundsArray.push(reducedArr);
-    this.questionsArray.push(reducedArr.flat())
+    this.questionsArray.push(reducedArr.flat());
   };
 
   checkAnswer(event){
     let userAnswer = $(event.target).text();
     userAnswer === round.currentAnswer ? DomUpdates.correctGuess() : DomUpdates.wrongGuess();
-    
   };
+
+  checkStage(){
+    console.log('cardCount', this.cardCount);
+
+    switch(this.cardCount) {
+      case 0:
+        this.stage += 1;
+        
+   
+        break;
+      default:
+        
+    }
+  }
+
 
 };
 
