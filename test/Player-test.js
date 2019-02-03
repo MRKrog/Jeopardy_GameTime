@@ -11,7 +11,7 @@ chai.use(spies);
 import domUpdates from '../src/domUpdates.js';
 import Player from '../src/Player.js'
 
-// chai.spy.on(domUpdates, ['displayHeight', 'displayWidth'], () => true);
+chai.spy.on(domUpdates, ['displayHeight', 'displayWidth'], () => true);
 
 // chai.spy.on(domUpdates, ['getUserInput'], () => 'The answer is Gabe');
 

@@ -52,7 +52,7 @@ class Game {
     let cardId = event.target.id;
     let card = round.questionsArray[round.stage];
     round.currentAnswer = card[cardId].answer;
-    DomUpdates.showQuestion(card[cardId]);
+    card[cardId].dailyDble === true ? DomUpdates.showDailyDbl(card[cardId]) : DomUpdates.showQuestion(card[cardId]);
     DomUpdates.disableCard(event);
     round.pointValue = card[cardId].pointValue;
   }

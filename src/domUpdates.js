@@ -36,7 +36,7 @@ export default {
     let i = round.stage;
 
     let counter = 0;
-
+    
     game.roundsArray[i].forEach((arr, index) => {
       $innerBoard.append(`
         <section class="question-column" id="col_${index}">
@@ -65,6 +65,15 @@ export default {
         </div>
       </section>
     `);
+  },
+
+  showDailyDbl: function(card) {
+    $('body').prepend(`
+      <section class="daily-double-title">
+        <h4>Daily Double!!</h4>
+      </section>
+    `);
+    this.showQuestion(card);
   },
 
   correctGuess: function() {

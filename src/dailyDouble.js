@@ -1,9 +1,12 @@
 class DailyDouble extends Clues {
-  constructor(question, answer) {
-    super(question, answer);
+  constructor(question, pointValue, answer, categoryId, dailyDble) {
+    super(question, pointValue, answer, categoryId, dailyDble);
+    this.wager = wager;
   }
 
   assignDailyDouble() {
-    
+
   }
 }
+
+export default DailyDouble;
