@@ -8,6 +8,7 @@ class Player {
 
 
   changePlayer(player){
+    DomUpdates.removePlayerPosition();
     switch(player) {
       case 0:
         game.activePlayer = 1;
@@ -21,8 +22,9 @@ class Player {
       default:
         console.log('No player Selected');
     }
+    DomUpdates.addPlayerPosition();
   }
-  
+
 
 }
 

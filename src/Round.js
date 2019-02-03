@@ -5,21 +5,21 @@ import Game from './Game.js';
 // import Clues from './Clue.js';
 
 class Rounds {
-  constructor(stage){
+  constructor(stage) {
     this.stage = stage || 0;
     this.currentAnswer = '';
     this.pointValue = 0;
     this.questionsArray = []; // Stores the current clues for the round
-    this.cardCount = 16;
+    this.cardCount = 4; // How many cards are left on the page
   }
 
-  buildRounds(allCategory, allClues){
+  initializeShuffle(allCategory, allClues, start, end) {
     this.shuffle(allCategory);
     this.shuffle(allClues);
-    this.filterArr(allCategory, allClues);
-    // console.log('shuffled Cat ', allCategory);
-    // console.log('shuffled Clue', allClues);
-  };
+    this.filterArr(allCategory, allClues, start, end);
+    console.log('shuffled Cat ', allCategory);
+    console.log('shuffled Clue', allClues);
+  }
 
   shuffle(array) {
     for (var i = array.length - 1; i > 0; i--) {
@@ -30,11 +30,16 @@ class Rounds {
     }
   };
 
-  filterArr(allCategory, allClues){
+  // buildRounds(allCategory, allClues) {
+  //   this.filterArr(allCategory, allClues);
+
+  // };
+
+  filterArr(allCategory, allClues, start, end) {
 
     const initialArr = [];
 
-    for(let i = 0; i < 4; i++){
+    for(let i = start; i < end; i++){
       let newClue = allClues.filter(arr => {
         return arr.categoryId === allCategory[i].category;
       });
@@ -57,24 +62,43 @@ class Rounds {
     this.questionsArray.push(reducedArr.flat());
   };
 
-  checkAnswer(event){
+  checkAnswer(event) {
     let userAnswer = $(event.target).text();
     userAnswer === round.currentAnswer ? DomUpdates.correctGuess() : DomUpdates.wrongGuess();
   };
 
-  checkStage(){
-    console.log('cardCount', this.cardCount);
-
+  checkStage() {
     switch(this.cardCount) {
       case 0:
         this.stage += 1;
-        
-   
+        this.changeRound();
         break;
       default:
-        
     }
-  }
+  };
+
+  changeRound() {
+    switch(this.stage) {
+      case 1:
+        this.secondRound();
+        break;
+      case 2:
+        this.thirdRound();
+      default:
+    }
+  };
+
+  secondRound() {
+    DomUpdates.clearBoard();
+    console.log('in second round');
+  };
+
+  thirdRound() {
+    console.log('in third round');
+  };
+
+
+
 
 
 };

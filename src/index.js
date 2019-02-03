@@ -48,13 +48,21 @@ $('#startBtn').on('click', startGameBtn);
 function startGameBtn(event){
   window.game = new Game(); // Initliazes New Game
   game.startGame();
-  $('.card').on('click', questionClicked);
 };
 
+$('body').on('click', '.card', () => {
+  questionClicked(event);
+})
+
+
 function questionClicked(event){
-  game.getClue(event); //start clue point search and update
+  game.getClue(event);
   $('.answerBtn').on('click', round.checkAnswer);
 };
+
+function quitButton() {}
+
+
 
 
 

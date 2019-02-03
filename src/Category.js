@@ -1,8 +1,7 @@
 import Game from './Game.js';
 
-
 class Category {
-  constructor(title, category){
+  constructor(title, category) {
     this.title = title;
     this.category = category;
   }
