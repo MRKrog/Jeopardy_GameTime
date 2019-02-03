@@ -55,7 +55,7 @@ class Game {
     round.currentAnswer = card[cardId].answer
     DomUpdates.showQuestion(card[cardId]);
     DomUpdates.disableCard(event);
-
+    
   };
 
 
