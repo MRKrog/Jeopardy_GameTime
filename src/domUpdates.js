@@ -60,7 +60,6 @@ export default {
   },
 
   showQuestion: function(clue){
-    console.log(clue);
     $('body').prepend(`
       <section class="answer-container">
         <div class="answer-question">
@@ -77,12 +76,32 @@ export default {
   },
 
   correctGuess: function(){
-    console.log('in correct');
+    $('.answer-container').prepend(`
+      <section class="show-result-container">
+        <div class="result"><i class="fas fa-check"></i></div>
+      </section>
+    `);
+    this.removeQuestions();
+    
   },
 
   wrongGuess: function(){
-    console.log('in wrong');
+  $('.answer-container').prepend(`
+      <section class="show-result-container">
+        <div class="result"><i class="fas fa-times"></i></div>
+      </section>
+    `);
+    this.removeQuestions();
   },
+
+  removeQuestions: function(){
+    $('.answer-container').delay(1000).fadeOut();
+
+  },
+
+  disableCard: function(event){
+    $(event.target).addClass('card-disabled')
+  }
 
 
 }

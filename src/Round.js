@@ -62,19 +62,10 @@ class Rounds {
     this.questionsArray.push(reducedArr.flat())
   };
 
-
   checkAnswer(event){
     let userAnswer = $(event.target).text();
-    // console.log('user answer', userAnswer)
-    // console.log('card answer', round.currentAnswer)
     userAnswer === round.currentAnswer ? DomUpdates.correctGuess() : DomUpdates.wrongGuess();
-    // if(userAnswer == round.currentAnswer){
-    //   console.log('correct');
-    //   DomUpdates.correct();
-    // } else {
-    //   console.log('wrong');
-    //
-    // }
+    
   };
 
 };

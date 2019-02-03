@@ -54,6 +54,7 @@ function startGameBtn(event){
 function questionClicked(event){
   game.getClue(event);
   $('.answerBtn').on('click', round.checkAnswer);
+  
 };
 
 

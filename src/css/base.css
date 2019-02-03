@@ -349,6 +349,7 @@ footer {
   color:#2581b2;
   box-shadow: none;
   cursor: pointer;
+  pointer-events: none;
 }
 
 .card:hover {
@@ -363,7 +364,7 @@ footer {
 
 
 
-/* #region Jeporady Game Board Styles */
+/* #region Jeporady Game Board Answers */
 
 .answer-container {
   position: absolute;
@@ -413,4 +414,31 @@ footer {
   cursor: pointer;
 }
 
-/* #endregion Jeporady Game Board Styles */
+.show-result-container {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
+
+.result {
+
+}
+
+.result i {
+  font-size: 18em; 
+}
+
+.result i.fa-check {
+  color: #21a233;
+}
+
+.result i.fa-times {
+  color: #d41a1a;
+}
+
+/* #endregion Jeporady Game Board Answers */
+
+
+
+
+
