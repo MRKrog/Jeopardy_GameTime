@@ -1,26 +1,25 @@
 import DomUpdates from './domUpdates.js';
 
 class Player {
-  constructor(name, score){
+  constructor(name, score) {
     this.name = name || 'MikeK';
     this.score = score || 0;
   }
 
 
-  changePlayer(player){
+  changePlayer(player) {
     DomUpdates.removePlayerPosition();
-    switch(player) {
-      case 0:
-        game.activePlayer = 1;
-        break;
-      case 1:
-        game.activePlayer = 2;
-        break;
-      case 2:
-        game.activePlayer = 0;
-        break;
-      default:
-        console.log('No player Selected');
+    switch (player) {
+    case 0:
+      game.activePlayer = 1;
+      break;
+    case 1:
+      game.activePlayer = 2;
+      break;
+    case 2:
+      game.activePlayer = 0;
+      break;
+    default:
     }
     DomUpdates.addPlayerPosition();
   }

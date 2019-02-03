@@ -18,13 +18,13 @@ import Player from '../src/Player.js'
 describe('Player', function () {
 
   it('Should return true', function() {
-  var player = new Player()
+    var player = new Player()
 
     expect(true).to.equal(true);
   });
 
   it('Should have a default name and score', function() {
-      var player = new Player();
+    var player = new Player();
 
     expect(player.name).to.equal('MikeK');
     expect(player.score).to.equal(0);
@@ -33,7 +33,7 @@ describe('Player', function () {
   it('Should be able to have a different name', function() {
     var player = new Player('PamPam');
 
-    expect(player.name,'PamPam');
+    expect(player.name, 'PamPam');
   });
 
   it('Should have a new score', function() {

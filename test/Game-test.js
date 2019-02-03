@@ -28,8 +28,6 @@ describe('Game', function () {
     expect(true).to.equal(true);
   });
 
-// doesnt have properties below
-
   it('startGame function to have been called', function() {
     expect(game.startGame()).to.have.been.called(1);
 
