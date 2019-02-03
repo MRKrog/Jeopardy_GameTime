@@ -4,6 +4,6 @@ class DailyDouble extends Clues {
   }
 
   assignDailyDouble() {
-    console.log('In Daily Double');
+    
   }
 }

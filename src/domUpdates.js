@@ -1,21 +1,14 @@
 import $ from 'jquery';
 
 export default {
-  // All Changes that are being made to the DOM go here
-
-  getUserInput: function() {
-    // var playerOneInput = document.querySelector('#box-height-display').innerText = newHeight;
-    return playerOneInput; // 'The answer is Gabe'
-  },
-
-  displayHeight: function(newHeight) {
-    // document.querySelector('#box-height-display').innerText = newHeight;
-  },
 
   buildScoreBoard: function(playerArray) {
-    $('.game-title').fadeOut(200, function(){ $(this).remove();});
-    $('.form-selection').fadeOut(200, function(){$(this).remove();});
-
+    $('.game-title').fadeOut(200, function() {
+      $(this).remove();
+    });
+    $('.form-selection').fadeOut(200, function() {
+      $(this).remove();
+    });
     $('footer').append(
       `<section class="player-info-container">
         <div id="player_0" class="player-info active-player">
@@ -34,14 +27,13 @@ export default {
     ).animate({'bottom': '0px'}, 500);
 
 
-    $('#startBtn').attr('data-after','Quit');
+    $('#startBtn').attr('data-after', 'Quit');
     $('body').prepend(`<article class="question-container"></article>`);
   },
 
   buildGameBoard: function(titleIndex) {
     let $innerBoard = $('.question-container');
     let i = round.stage;
-    let thisRound = round.questionsArray[i]
 
     let counter = 0;
 
@@ -52,7 +44,7 @@ export default {
         </section>`
       );
       titleIndex++;
-      arr.forEach((subArr, subIndex) => {
+      arr.forEach((subArr) => {
         $(`#col_${index}`).append(`<div class="card" id="${counter}">$${subArr.pointValue}</div>`);
         counter++
       });
@@ -92,12 +84,11 @@ export default {
       </section>
     `);
     this.removeQuestions();
-    console.log
     game.updatePlayerScore(-round.pointValue);
   },
 
   removeQuestions: function() {
-    $('.answer-container').fadeOut(1, function(){
+    $('.answer-container').fadeOut(1, function() {
       $(this).remove();
     });
   },
@@ -108,18 +99,17 @@ export default {
 
   changePlayerScore: function() {
     let $currentPlayer;
-    switch(game.activePlayer) {
-      case 0:
-        $currentPlayer = '#playerOne-Score';
-        break;
-      case 1:
-        $currentPlayer = '#playerTwo-Score';
-        break;
-      case 2:
-        $currentPlayer = '#playerThree-Score';
-        break;
-      default:
-        console.log('No player Selected');
+    switch (game.activePlayer) {
+    case 0:
+      $currentPlayer = '#playerOne-Score';
+      break;
+    case 1:
+      $currentPlayer = '#playerTwo-Score';
+      break;
+    case 2:
+      $currentPlayer = '#playerThree-Score';
+      break;
+    default:
     }
     $($currentPlayer).text(game.playerArray[game.activePlayer].score);
     game.playerArray[game.activePlayer].changePlayer(game.activePlayer);
@@ -134,13 +124,13 @@ export default {
   },
 
   clearBoard: function() {
-    $('.question-container section').fadeOut(500, function(){
+    $('.question-container section').fadeOut(500, function() {
       $(this).remove();
     });
-    setTimeout(function(){
-      console.log('in timeout');
+    setTimeout(function() {
       game.buildArray();
     }, 2000);
 
   }
+
 }

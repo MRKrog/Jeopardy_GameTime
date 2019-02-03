@@ -1,6 +1,3 @@
-import DomUpdates from './domUpdates.js';
-import Game from './Game.js';
-
 class Clues {
   constructor(question, pointValue, answer, categoryId, dailyDble) {
     this.question = question || 'What MTV plays 24 hours a day';
