@@ -19,6 +19,7 @@ window.$ = jQuery;
 // Import Classes/Objects
 import Game from './Game.js'; // need
 
+window.game = new Game();
 
 // ****************************
 // Event listeners
@@ -32,8 +33,13 @@ $('body').on('click', '.answerBtn', () => {
   getUserInput(event);
 });
 
+
+$('body').on('click', '.submit-wager', () => {
+  submitWager(event);
+});
+
+
 function startGameBtn() {
-  window.game = new Game();
   game.startGame();
 }
 
@@ -45,7 +51,9 @@ function getUserInput() {
   round.checkAnswer(event);
 }
 
-
+function submitWager(event) {
+  console.log('in submit wager');
+}
 
 
 
