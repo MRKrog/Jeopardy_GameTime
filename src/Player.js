@@ -4,6 +4,7 @@ class Player {
   constructor(name, score){
     this.name = name || 'MikeK';
     this.score = score || 0;
+    this.turn = false;
   }
 
 
