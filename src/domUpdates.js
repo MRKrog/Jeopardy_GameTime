@@ -73,7 +73,7 @@ export default {
         <h4>Daily Double!!</h4>
         <p>Enter Your Wager Amount</p>
         <input type="number" min="5" max="100">
-        <button class="submit-wager">Submit Wager</button>
+        <button class="submit-wager">Submit Wager > </button>
       </section>
     `);
     this.showQuestion(card);
