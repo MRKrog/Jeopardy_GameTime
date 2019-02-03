@@ -46,7 +46,7 @@ export default {
 
     let counter = 0;
 
-    game.roundsArray[i].forEach((arr, index, arrLength) => {
+    game.roundsArray[i].forEach((arr, index) => {
       innerBoard.append(`
         <section class="question-column" id="col_${index}">
           <div class="question-title"><h3>${game.categoryArray[index].title}</h3></div>
@@ -59,15 +59,15 @@ export default {
     });
   },
 
-  showQuestion: function(clue){
+  showQuestion: function(card){
     $('body').prepend(`
       <section class="answer-container">
         <div class="answer-question">
-          <h2>${clue.question}</h2>
+          <h2>${card.question}</h2>
           <section class="select-answer">
             <button class="answerBtn">test</button>
             <button class="answerBtn">what</button>
-            <button class="answerBtn">${clue.answer}</button>
+            <button class="answerBtn">${card.answer}</button>
             <button class="answerBtn">boss</button>
           </section>
         </div>
@@ -82,26 +82,48 @@ export default {
       </section>
     `);
     this.removeQuestions();
-    
+    game.updatePlayerScore(round.pointValue);
   },
 
   wrongGuess: function(){
-  $('.answer-container').prepend(`
+    $('.answer-container').prepend(`
       <section class="show-result-container">
         <div class="result"><i class="fas fa-times"></i></div>
       </section>
     `);
     this.removeQuestions();
+    console.log
+    game.updatePlayerScore(-round.pointValue);
   },
 
   removeQuestions: function(){
-    $('.answer-container').delay(1000).fadeOut();
-
+    $('.answer-container').fadeOut(1, function(){
+      $(this).remove();
+    });
   },
 
   disableCard: function(event){
     $(event.target).addClass('card-disabled')
-  }
+  },
+
+  changePlayerScore: function(){
+    let currentPlayer;
+    switch(game.activePlayer) {
+      case 0:
+        currentPlayer = '#playerOne-Score';
+        break;
+      case 1:
+        currentPlayer = '#playerTwo-Score';
+        break;
+      case 2:
+        currentPlayer = '#playerThree-Score';
+        break;
+      default:
+        console.log('No player Selected');
+    }
+    $(currentPlayer).text(game.playerArray[game.activePlayer].score);
+    game.playerArray[game.activePlayer].changePlayer(game.activePlayer);
+  }, 
 
 
 }

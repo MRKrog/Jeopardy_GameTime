@@ -4,13 +4,25 @@ class Player {
   constructor(name, score){
     this.name = name || 'MikeK';
     this.score = score || 0;
-    this.turn = false;
   }
 
 
-  playerSetUp(name, score){
-    console.log('in player set up');
+  changePlayer(player){
+    switch(player) {
+      case 0:
+        game.activePlayer = 1;
+        break;
+      case 1:
+        game.activePlayer = 2;
+        break;
+      case 2:
+        game.activePlayer = 0;
+        break;
+      default:
+        console.log('No player Selected');
+    }
   }
+  
 
 }
 

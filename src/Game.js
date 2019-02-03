@@ -11,8 +11,7 @@ class Game {
     // this.round = 0;
     // this.winner = winner || false;
     // this.roundNumber = this.roundNumber
-    this.activePlayer = 1;
-
+    this.activePlayer = 0;
     this.playerArray = []; // Stores all the players instances
     this.categoryArray = []; // Stores all the categories together
     this.allClues = []; // Stores all the clues together
@@ -52,12 +51,18 @@ class Game {
   getClue(event){
     let cardId = event.target.id;
     let card = round.questionsArray[round.stage];
-    round.currentAnswer = card[cardId].answer
+    round.currentAnswer = card[cardId].answer;
     DomUpdates.showQuestion(card[cardId]);
     DomUpdates.disableCard(event);
-    
+    round.pointValue = card[cardId].pointValue;
   };
 
+  updatePlayerScore(points){
+    this.playerArray[this.activePlayer].score += points;
+    DomUpdates.changePlayerScore();
+    round.cardCount -= 1;
+    round.checkStage();
+  }
 
 }
 
