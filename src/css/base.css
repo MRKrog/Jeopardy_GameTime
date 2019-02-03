@@ -425,7 +425,7 @@ footer {
 }
 
 .result i {
-  font-size: 18em; 
+  font-size: 18em;
 }
 
 .result i.fa-check {
@@ -439,6 +439,28 @@ footer {
 /* #endregion Jeporady Game Board Answers */
 
 
+/* #region Daily Double */
 
+.daily-double-title {
+  position: absolute;
+  z-index: 99999;
+  width: 90%;
+  background: rgba(64, 141, 167, .96);
+  height: 90%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  margin: 5%;
+  justify-content: unset;
+  border-radius: 10px;
+}
 
+.daily-double-title h4 {
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  font-size: 7em;
+  margin: auto;
+  text-transform: uppercase;
+}
 
+/* #endregion Daily Double */

@@ -4,7 +4,7 @@ class Clues {
     this.pointValue = pointValue || 100;
     this.answer = answer || 'music videos';
     this.categoryId = categoryId || 10;
-    this.dailyDble = dailyDble || 4000;
+    this.dailyDble = dailyDble || false;
   }
 
   removeClue() {

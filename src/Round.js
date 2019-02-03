@@ -41,8 +41,17 @@ class Rounds {
       acc.push(subArr);
       return acc;
     }, []);
+    this.createRoundClues(reducedArr);
+  }
+  createRoundClues(reducedArr){
     game.roundsArray.push(reducedArr);
     this.questionsArray.push(reducedArr.flat());
+    this.createDailyDoubles();
+  }
+  createDailyDoubles() {
+    var item = this.questionsArray[this.stage][Math.floor(Math.random()*this.questionsArray[this.stage].length)];
+    console.log(item);
+    console.log(item.dailyDble = true);
   }
   checkAnswer(event) {
     let userAnswer = $(event.target).text();

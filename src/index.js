@@ -24,21 +24,25 @@ import Game from './Game.js'; // need
 // Event listeners
 $('#startBtn').on('click', startGameBtn);
 
+$('body').on('click', '.card', () => {
+  questionClicked(event);
+});
 
+$('body').on('click', '.answerBtn', () => {
+  getUserInput(event);
+});
 
 function startGameBtn() {
   window.game = new Game();
   game.startGame();
 }
 
-$('body').on('click', '.card', () => {
-  questionClicked(event);
-});
-
-
 function questionClicked(event) {
   game.getClue(event);
-  $('.answerBtn').on('click', round.checkAnswer);
+}
+
+function getUserInput() {
+  round.checkAnswer(event);
 }
 
 
