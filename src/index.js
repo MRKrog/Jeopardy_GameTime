@@ -32,8 +32,13 @@ $('body').on('click', '.answerBtn', () => {
   getUserInput(event);
 });
 
+$('body').on('click', '.submit-wager', () => {
+  submitWager(event);
+});
+
+window.game = new Game();
+
 function startGameBtn() {
-  window.game = new Game();
   game.startGame();
 }
 
@@ -45,7 +50,9 @@ function getUserInput() {
   round.checkAnswer(event);
 }
 
-
+function submitWager(event) {
+  console.log('in submit wager');
+}
 
 
 

@@ -36,7 +36,7 @@ export default {
     let i = round.stage;
 
     let counter = 0;
-    
+
     game.roundsArray[i].forEach((arr, index) => {
       $innerBoard.append(`
         <section class="question-column" id="col_${index}">
@@ -71,6 +71,9 @@ export default {
     $('body').prepend(`
       <section class="daily-double-title">
         <h4>Daily Double!!</h4>
+        <p>Enter Your Wager Amount</p>
+        <input type="number" min="5" max="100">
+        <button class="submit-wager">Submit Wager</button>
       </section>
     `);
     this.showQuestion(card);
