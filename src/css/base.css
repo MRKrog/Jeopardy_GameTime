@@ -13,6 +13,7 @@ font-family: 'Roboto Condensed', sans-serif;
 
 @import url('https://fonts.googleapis.com/css?family=Lora|Roboto+Condensed|Roboto:400,700');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700');
+@import url('https://fonts.googleapis.com/css?family=Oswald:200,400,700');
 
 * {
   box-sizing: border-box;
@@ -42,19 +43,38 @@ body {
 
 /* #region player input section */
 
+.game-container {
+  padding: 3em 0 0 0;
+  width: 100%;
+}
+
 .game-title {
-  padding: 5em;
-  margin: 0;
+  margin: auto;
   text-align: center;
+  max-width: 1200px;
+  width: 90%;
+  padding-top: 7em;
+  position: relative;
+  bottom: -9px;
+  left: 10px;
+  text-shadow: 0px 2px 6px rgba(54, 55, 255, .6);
 }
 
 .game-title h1 {
-  font-family: 'Open Sans Condensed', sans-serif;
+  position: relative;
   color: #fff;
-  font-size: 2.5em;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  font-weight: bold;
+  font-size: 3.5em;
+  margin: 0;
+  text-align: center;
+  line-height: 1;
+  text-align: left;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+}
+
+.game-title h1::after{
+  content:"";
+  position: absolute;
 }
 
 /* #endregion player input section */
@@ -64,9 +84,12 @@ body {
 
 .form-selection {
   margin: auto;
-  padding: 2em 2em;
-  width: 100%;
+  padding: 3em 0em;
+  width: 90%;
+  border-radius: 5px;
   max-width: 1200px;
+  background: rgba(35, 31, 32, .95);
+  box-shadow: 0px 1px 25px 1px rgba(54, 55, 255, .6);
 }
 
 .form-selection form {
@@ -78,30 +101,25 @@ body {
   padding: 0;
   margin: 0;
   display: flex;
+  position: relative;
   border: none;
   width:28%;
 }
 
-/* .form-selection label {
-  color: #fff;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 100;
-  padding-bottom: .5em;
-  font-size: .8em;
+.form-selection fieldset::before {
+  content: "";
+  position: absolute;
+  background: #3c3c3c;
+  width: 2px;
+  height: 93px;
+  right: -21px;
+  bottom: -21px;
+  border-radius: 2px;
 }
 
-
-.form-selection input {
-  font-family: 'Open Sans Condensed', sans-serif;
-  line-height: 1.5;
-  padding: 5px;
-  border-radius: 2px;
-  border: none;
-  box-shadow: 0px 1px 3px 2px rgba(0, 0, 0, .3);
-  background: rgba(255, 255, 255, .9);
-  outline:none;
-  width: 100%;
-} */
+.form-selection fieldset:last-child::before {
+  display: none;
+}
 
 .player-input {
   position: relative;
@@ -112,18 +130,17 @@ body {
 }
 
 span.label {
-  font-family: 'Roboto', sans-serif;
   font-size: .8em;
   position: absolute;
   top: 8px;
   left: 0;
   font-size: 22px;
   color: #fff;
-  font-weight: 500;
+  font-weight: 400;
   transform-origin: 0 0;
   transition: all .2s ease;
   text-transform: uppercase;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Oswald', sans-serif;
 }
 .border {
   position: absolute;
@@ -166,6 +183,7 @@ input:focus {
   background: none;
   outline: none;
   font-size: 26px;
+  color: #0d67de;
 }
 
 input:focus + span {
@@ -212,6 +230,10 @@ footer {
   padding: 0 3%;
   text-align: center;
   color: #fff;
+}
+
+.player-info.active-player h3 {
+  font-weight: bold;
 }
 
 .player-info h3 {
@@ -280,24 +302,6 @@ footer {
 
 /* #region Jeporady Game Board Styles */
 
-.game-container {
-  padding: 3em 0 0 0;
-  width: 100%;
-}
-
-.game-title {}
-
-.game-title h1 {
-  color: #fff;
-  font-family: 'Lora', serif;
-  font-size: 2.5em;
-  letter-spacing: 0.05em;
-  margin: 0;
-  text-align: center;
-  line-height: 1;
-  text-transform: uppercase;
-}
-
 .question-container {
   display: flex;
   padding: 0em 3em 3em 3em;
@@ -361,7 +365,6 @@ footer {
 
 
 /* #endregion Jeporady Game Board Styles */
-
 
 
 /* #region Jeporady Game Board Answers */
