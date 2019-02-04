@@ -64,9 +64,11 @@ body {
 
 .form-selection {
   margin: auto;
-  padding: 2em 2em;
-  width: 100%;
+  padding: 3em 0em;
+  width: 90%;
+  border-radius: 5px;
   max-width: 1200px;
+  background: rgba(35, 31, 32, .95);
 }
 
 .form-selection form {
@@ -78,30 +80,25 @@ body {
   padding: 0;
   margin: 0;
   display: flex;
+  position: relative;
   border: none;
   width:28%;
 }
 
-/* .form-selection label {
-  color: #fff;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 100;
-  padding-bottom: .5em;
-  font-size: .8em;
+.form-selection fieldset::before {
+  content: "";
+  position: absolute;
+  background: #3c3c3c;
+  width: 2px;
+  height: 93px;
+  right: -21px;
+  bottom: -21px;
+  border-radius: 2px;
 }
 
-
-.form-selection input {
-  font-family: 'Open Sans Condensed', sans-serif;
-  line-height: 1.5;
-  padding: 5px;
-  border-radius: 2px;
-  border: none;
-  box-shadow: 0px 1px 3px 2px rgba(0, 0, 0, .3);
-  background: rgba(255, 255, 255, .9);
-  outline:none;
-  width: 100%;
-} */
+.form-selection fieldset:last-child::before {
+  display: none;
+}
 
 .player-input {
   position: relative;
@@ -166,6 +163,7 @@ input:focus {
   background: none;
   outline: none;
   font-size: 26px;
+  color: #0d67de;
 }
 
 input:focus + span {
@@ -212,6 +210,10 @@ footer {
   padding: 0 3%;
   text-align: center;
   color: #fff;
+}
+
+.player-info.active-player h3 {
+  font-weight: bold;
 }
 
 .player-info h3 {
@@ -361,7 +363,6 @@ footer {
 
 
 /* #endregion Jeporady Game Board Styles */
-
 
 
 /* #region Jeporady Game Board Answers */

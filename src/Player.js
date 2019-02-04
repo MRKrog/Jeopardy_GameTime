@@ -7,8 +7,8 @@ class Player {
   }
 
 
-  changePlayer(player) {
-    DomUpdates.removePlayerPosition();
+  changePlayer(game, player) {
+    DomUpdates.removePlayerPosition(game);
     switch (player) {
     case 0:
       game.activePlayer = 1;
@@ -21,7 +21,7 @@ class Player {
       break;
     default:
     }
-    DomUpdates.addPlayerPosition();
+    DomUpdates.addPlayerPosition(game);
   }
 
 

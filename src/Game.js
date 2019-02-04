@@ -13,26 +13,29 @@ class Game {
     this.categoryArray = []; // Stores all the categories together
     this.allClues = []; // Stores all the clues together
     this.roundsArray = []; // Stores all the rounds/game boards
+    this.rndInst = new Rounds(0); // game.round to call round here
   }
 
-  startGame() {
-    this.createPlayers();
+  startGame(game, p1, p2, p3) {
+    this.createPlayers(p1, p2, p3);
     this.createClues();
     this.createCategories();
-    window.round = new Rounds(0);
-    round.initializeShuffle(this.categoryArray, this.allClues, 0, 4);
-    DomUpdates.buildGameBoard(0);
+    this.rndInst.initializeShuffle(game, 0, 4);
+    DomUpdates.buildGameBoard(game, 0);
   }
 
-  buildArray() {
-    round.filterArr(this.categoryArray, this.allClues, 4, 8);
-    DomUpdates.buildGameBoard(4);
+  buildArray(game) {
+    this.rndInst.filterArr(game, this.categoryArray, this.allClues, 4, 8);
+    DomUpdates.buildGameBoard(game, 4);
   }
 
-  createPlayers() {
-    $('.name-input').each((i, curr) => {
-      this.playerArray.push(new Player( $(curr).val()))
-    });
+  createPlayers(p1, p2, p3) {
+    let playerInst1 = new Player(p1);
+    let playerInst2 = new Player(p2);
+    let playerInst3 = new Player(p3);
+    this.playerArray.push(playerInst1);
+    this.playerArray.push(playerInst2);
+    this.playerArray.push(playerInst3);
     DomUpdates.buildScoreBoard(this.playerArray);
   }
 
@@ -48,20 +51,20 @@ class Game {
     });
   }
 
-  getClue(event) {
+  getClue(game, event) {
     let cardId = event.target.id;
-    let card = round.questionsArray[round.stage];
-    round.currentAnswer = card[cardId].answer;
+    let card = this.rndInst.questionsArray[this.rndInst.stage];
+    this.rndInst.currentAnswer = card[cardId].answer;
     card[cardId].dailyDble === true ? DomUpdates.showDailyDbl(card[cardId]) : DomUpdates.showQuestion(card[cardId]);
     DomUpdates.disableCard(event);
-    round.pointValue = card[cardId].pointValue;
+    this.rndInst.pointValue = card[cardId].pointValue;
   }
 
-  updatePlayerScore(points) {
+  updatePlayerScore(game, points) {
     this.playerArray[this.activePlayer].score += points;
-    DomUpdates.changePlayerScore();
-    round.cardCount -= 1;
-    round.checkStage();
+    DomUpdates.changePlayerScore(game);
+    this.rndInst.cardCount -= 1;
+    this.rndInst.checkStage(game);
   }
 
 }

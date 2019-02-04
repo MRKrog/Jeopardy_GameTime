@@ -9,10 +9,10 @@ class Rounds {
     this.questionsArray = [];
     this.cardCount = 4;
   }
-  initializeShuffle(allCategory, allClues, start, end) {
-    this.shuffle(allCategory);
-    this.shuffle(allClues);
-    this.filterArr(allCategory, allClues, start, end);
+  initializeShuffle(game, start, end) {
+    this.shuffle(game.categoryArray);
+    this.shuffle(game.allClues);
+    this.filterArr(game, game.categoryArray, game.allClues, start, end);
   }
   shuffle(array) {
     for (var i = array.length - 1; i > 0; i--) {
@@ -22,7 +22,7 @@ class Rounds {
       array[j] = temp;
     }
   }
-  filterArr(allCategory, allClues, start, end) {
+  filterArr(game, allCategory, allClues, start, end) {
     const initialArr = [];
     for (let i = start; i < end; i++) {
       let newClue = allClues.filter(arr => {
@@ -41,44 +41,44 @@ class Rounds {
       acc.push(subArr);
       return acc;
     }, []);
-    this.createRoundClues(reducedArr);
+    this.createRoundClues(game, reducedArr);
   }
-  createRoundClues(reducedArr){
+  createRoundClues(game, reducedArr){
     game.roundsArray.push(reducedArr);
     this.questionsArray.push(reducedArr.flat());
-    this.createDailyDoubles();
+    this.createDailyDoubles(game, reducedArr);
   }
-  createDailyDoubles() {
-    var item = this.questionsArray[this.stage][Math.floor(Math.random()*this.questionsArray[this.stage].length)];
-    console.log(item);
-    console.log(item.dailyDble = true);
+  createDailyDoubles(game, reducedArr) {
+    let randomClue = this.questionsArray[this.stage][Math.floor(Math.random()*this.questionsArray[this.stage].length)];
+    randomClue.dailyDble = true;
+    console.log('randomClue', randomClue);
+    console.log('Questions Array ', this.questionsArray);
   }
-  checkAnswer(event) {
-    let userAnswer = $(event.target).text();
-    userAnswer === round.currentAnswer ? DomUpdates.correctGuess() : DomUpdates.wrongGuess();
+  checkAnswer(game, userAnswer) {
+    userAnswer === game.rndInst.currentAnswer ? DomUpdates.correctGuess(game) : DomUpdates.wrongGuess(game);
   }
-  checkStage() {
+  checkStage(game) {
     switch (this.cardCount) {
     case 0:
       this.stage += 1;
-      this.changeRound();
+      this.changeRound(game);
       break;
     default:
     }
   }
-  changeRound() {
+  changeRound(game) {
     switch (this.stage) {
     case 1:
-      this.secondRound();
+      this.secondRound(game);
       break;
     case 2:
-      this.thirdRound();
+      this.thirdRound(game);
       break;
     default:
     }
   }
-  secondRound() {
-    DomUpdates.clearBoard();
+  secondRound(game) {
+    DomUpdates.clearBoard(game);
   }
 }
 export default Rounds;
