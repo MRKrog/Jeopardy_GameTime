@@ -26,17 +26,14 @@ export default {
       </section>`
     ).animate({'bottom': '0px'}, 500);
 
-
     $('#startBtn').attr('data-after', 'Quit');
     $('body').prepend(`<article class="question-container"></article>`);
   },
 
-  buildGameBoard: function(titleIndex) {
+  buildGameBoard: function(game, titleIndex) {
     let $innerBoard = $('.question-container');
-    let i = round.stage;
-
+    let i = game.rndInst.stage;
     let counter = 0;
-
     game.roundsArray[i].forEach((arr, index) => {
       $innerBoard.append(`
         <section class="question-column" id="col_${index}">
@@ -79,24 +76,26 @@ export default {
     this.showQuestion(card);
   },
 
-  correctGuess: function() {
+  correctGuess: function(game) {
+    console.log('game ', game);
     $('.answer-container').prepend(`
       <section class="show-result-container">
         <div class="result"><i class="fas fa-check"></i></div>
       </section>
     `);
-    this.removeQuestions();
-    game.updatePlayerScore(round.pointValue);
+    this.removeQuestions(game);
+    game.updatePlayerScore(game, game.rndInst.pointValue);
   },
 
-  wrongGuess: function() {
+  wrongGuess: function(game) {
+    console.log('game ', game);
     $('.answer-container').prepend(`
       <section class="show-result-container">
         <div class="result"><i class="fas fa-times"></i></div>
       </section>
     `);
-    this.removeQuestions();
-    game.updatePlayerScore(-round.pointValue);
+    this.removeQuestions(game);
+    game.updatePlayerScore(game, -game.rndInst.pointValue);
   },
 
   removeQuestions: function() {
@@ -109,7 +108,7 @@ export default {
     $(event.target).addClass('card-disabled')
   },
 
-  changePlayerScore: function() {
+  changePlayerScore: function(game) {
     let $currentPlayer;
     switch (game.activePlayer) {
     case 0:
@@ -124,25 +123,24 @@ export default {
     default:
     }
     $($currentPlayer).text(game.playerArray[game.activePlayer].score);
-    game.playerArray[game.activePlayer].changePlayer(game.activePlayer);
+    game.playerArray[game.activePlayer].changePlayer(game, game.activePlayer);
   },
 
-  addPlayerPosition: function() {
+  addPlayerPosition: function(game) {
     $(`#player_${game.activePlayer}`).addClass('active-player');
   },
 
-  removePlayerPosition: function() {
+  removePlayerPosition: function(game) {
     $(`#player_${game.activePlayer}`).removeClass('active-player');
   },
 
-  clearBoard: function() {
+  clearBoard: function(game) {
     $('.question-container section').fadeOut(500, function() {
       $(this).remove();
     });
     setTimeout(function() {
-      game.buildArray();
+      game.buildArray(game);
     }, 2000);
-
   }
 
 }
