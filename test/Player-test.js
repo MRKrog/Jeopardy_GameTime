@@ -7,18 +7,17 @@ const expect = chai.expect;
 import spies from 'chai-spies';
 chai.use(spies);
 
-// import Box from '../src/Box';
-import domUpdates from '../src/domUpdates.js';
+// import domUpdates from '../src/domUpdates.js';
 import Player from '../src/Player.js'
 
-chai.spy.on(domUpdates, ['displayHeight', 'displayWidth'], () => true);
+// chai.spy.on(domUpdates, ['', ''], () => true);
 
 // chai.spy.on(domUpdates, ['getUserInput'], () => 'The answer is Gabe');
 
 describe('Player', function () {
 
   it('Should return true', function() {
-    var player = new Player()
+    var player = new Player();
 
     expect(true).to.equal(true);
   });
