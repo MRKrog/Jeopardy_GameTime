@@ -64,7 +64,7 @@ body {
   position: relative;
   color: #fff;
   display: inline-block;
-  font-size: 3.5em;
+  font-size: 4.5em;
   margin: 0;
   text-align: center;
   line-height: 1;
@@ -205,106 +205,28 @@ input:-internal-autofill-selected {
 /* #endregion player input section */
 
 
-/* #region player information screen */
-
-footer {
-  position: absolute;
-  width: 500px;
-  margin-left: -250px;
-  bottom: -100px;
-  left: 50%;
-  transition: all 1s;
-   overflow: hidden;
-}
-
-.player-info-container {
-  transition: all 1s;
-  display: flex;
-  padding: .5em .5em .5em .5em;
-  justify-content: space-around;
-  background: #231f20;
-  border-top-right-radius: 15px;
-  border-top-left-radius: 15px;
-  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, .5);
-}
-
-.player-info {
-  width: 30%;
-  padding: 0 3%;
-  text-align: center;
-  color: #fff;
-}
-
-.player-info.active-player h3 {
-  font-weight: bold;
-}
-
-.player-info h3 {
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  font-size: 1em;
-  padding-bottom: .5em;
-  font-weight: 100;
-}
-
-.player-info h4 {
-  font-family: 'Roboto Condensed', sans-serif;
-  margin: 0;
-  text-transform: uppercase;
-  padding: .5em;
-  line-height: 1;
-  letter-spacing: .04em;
-  background: #313131;
-  box-shadow: inset 0px 0px 6px 1px rgba(0, 0, 0, .8);
-}
-
-/* #endregion player information screen */
+/* #region Beneath Input Section */
 
 
-/* #region Action Button */
-
-.action-button-container {
-  position: absolute;
-  bottom: 0px;
-  right: 0px;
-  line-height: 0;
-  display: none;
-}
-
-.action-button-container button {
-  height: 100px;
-  outline:none;
-  position: relative;
-  color:#fff;
-  width:100px;
-  border:none;
-  cursor: pointer;
-  transition: background .5s ease;
-  -moz-border-radius-bottomright: 50px 25px;
-  border-top-left-radius: 100px 100px;
-  background: #231f20;
-}
-
-.action-button-container button::after {
-  /* content: "Start"; */
-  content: attr(data-after);
-  position: absolute;
-  top: 50%;
-  font-size: 1.2em;
-  left: 32%;
-  text-transform: uppercase;
-  font-family: 'Roboto Condensed', sans-serif;
-}
-
-.action-button-container button:hover {
-  background:#000;
-  color:#fff;
-}
-
-.start-button-container {
+.title-extra {
   max-width: 1200px;
   width: 90%;
   margin: auto;
+  display: flex;
+  padding-top: 2em;
+  justify-content: space-around;
+}
+
+.game-logo {
+  width: 60%;
+}
+
+.game-logo img {
+  width: 100%;
+}
+
+.start-button-container {
+
 }
 
 #startBtn {
@@ -314,7 +236,6 @@ footer {
   margin-left: auto;
   margin-right: 0;
   margin-bottom: 0px;
-  margin-top: 2em;
   -webkit-border-radius: 75px;
   -moz-border-radius: 75px;
   border-radius: 75px;
@@ -423,6 +344,106 @@ footer {
 #button:active #darker_triangle { border-left: 50px solid #000000 }
 
 
+
+/* #endregion Beneath Input Section */
+
+
+/* #region player information screen */
+
+footer {
+  position: absolute;
+  width: 500px;
+  margin-left: -250px;
+  bottom: -100px;
+  left: 50%;
+  transition: all 1s;
+   overflow: hidden;
+}
+
+.player-info-container {
+  transition: all 1s;
+  display: flex;
+  padding: .5em .5em .5em .5em;
+  justify-content: space-around;
+  background: #231f20;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, .5);
+}
+
+.player-info {
+  width: 30%;
+  padding: 0 3%;
+  text-align: center;
+  color: #fff;
+}
+
+.player-info.active-player h3 {
+  font-weight: bold;
+}
+
+.player-info h3 {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  font-size: 1em;
+  padding-bottom: .5em;
+  font-weight: 100;
+}
+
+.player-info h4 {
+  font-family: 'Roboto Condensed', sans-serif;
+  margin: 0;
+  text-transform: uppercase;
+  padding: .5em;
+  line-height: 1;
+  letter-spacing: .04em;
+  background: #313131;
+  box-shadow: inset 0px 0px 6px 1px rgba(0, 0, 0, .8);
+}
+
+/* #endregion player information screen */
+
+
+/* #region Action Button */
+
+.action-button-container {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  line-height: 0;
+  display: none;
+}
+
+.action-button-container button {
+  height: 100px;
+  outline:none;
+  position: relative;
+  color:#fff;
+  width:100px;
+  border:none;
+  cursor: pointer;
+  transition: background .5s ease;
+  -moz-border-radius-bottomright: 50px 25px;
+  border-top-left-radius: 100px 100px;
+  background: #231f20;
+}
+
+.action-button-container button::after {
+  /* content: "Start"; */
+  content: attr(data-after);
+  position: absolute;
+  top: 50%;
+  font-size: 1.2em;
+  left: 32%;
+  text-transform: uppercase;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.action-button-container button:hover {
+  background:#000;
+  color:#fff;
+}
+
 /* #endregion Action Button */
 
 
@@ -476,7 +497,6 @@ footer {
 
 .card {
   text-align: center;
-  color: #faec62;
   font-family: 'Roboto Condensed', sans-serif;
   background: #247dac;
   font-size: 2.5em;
@@ -489,6 +509,53 @@ footer {
   transition: all .5s ease;
   box-shadow: -2px 1px 2px 0px rgba(0, 0, 0, .1);
 }
+
+
+.card {
+	background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+	background-size: 400% 400%;
+  color:#fff;
+	-webkit-animation: Gradient 15s ease infinite;
+	-moz-animation: Gradient 15s ease infinite;
+	animation: Gradient 15s ease infinite;
+}
+
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@-moz-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
 
 .card-disabled {
   background:#2688bb;
