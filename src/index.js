@@ -15,6 +15,7 @@ window.$ = jQuery;
 // Import Classes/Objects
 import Game from './Game.js'; // need
 import Rounds from './Round.js'; // need
+import DailyDouble from './dailyDouble.js';
 
 let game = new Game();
 // window.round = new Rounds(0);
@@ -34,14 +35,17 @@ $('body').on('click', '.answerBtn', () => {
 });
 
 $('body').on('click', '.submit-wager', () => {
-  submitWager(event);
+  submitWager();
 });
+
 
 function startGameBtn() {
   let p1 = $('#nameOne-input').val();
   let p2 = $('#nameTwo-input').val();
   let p3 = $('#nameThree-input').val();
   game.startGame(game, p1, p2, p3);
+  $('#startBtn').remove();
+  $('.action-button-container').css('display', 'block');
 }
 
 function questionClicked(event) {
@@ -53,6 +57,12 @@ function getUserInput(event) {
   game.rndInst.checkAnswer(game, userAnswer);
 }
 
-function submitWager(event) {
-  console.log('in submit wager');
+function submitWager() {
+console.log('in submit wager');
+  let wager = $('.wager-input').val();
+  let dailyDb = game.rndInst.questionsArray[game.rndInst.stage].find(clue => {
+    return clue instanceof DailyDouble;
+  });
+  dailyDb.updatePointValue(wager);
+  console.log('daily double', dailyDb);
 }

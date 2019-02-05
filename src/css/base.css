@@ -1,17 +1,17 @@
 /* Styles********
 ---------
 COLORS
-blue #408da7
-light-blue #92dfe5
+blue #0077FF
 ---------
 FONTS
 font-family: 'Roboto', sans-serif;
 font-family: 'Lora', serif;
 font-family: 'Roboto Condensed', sans-serif;
+font-family: 'Oswald', sans-serif;
 ---------
 *****************/
 
-@import url('https://fonts.googleapis.com/css?family=Lora|Roboto+Condensed|Roboto:400,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed|Roboto:400,700');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700');
 @import url('https://fonts.googleapis.com/css?family=Oswald:200,400,700');
 
@@ -55,21 +55,22 @@ body {
   width: 90%;
   padding-top: 7em;
   position: relative;
-  bottom: -9px;
-  left: 10px;
+  bottom: -10px;
   text-shadow: 0px 2px 6px rgba(54, 55, 255, .6);
 }
 
 .game-title h1 {
   position: relative;
   color: #fff;
+  display: inline-block;
   font-size: 3.5em;
   margin: 0;
   text-align: center;
   line-height: 1;
+  text-transform: uppercase;
   text-align: left;
   font-family: 'Oswald', sans-serif;
-  font-weight: 400;
+  font-weight: 800;
 }
 
 .game-title h1::after{
@@ -265,6 +266,7 @@ footer {
   bottom: 0px;
   right: 0px;
   line-height: 0;
+  display: none;
 }
 
 .action-button-container button {
@@ -296,6 +298,128 @@ footer {
   background:#000;
   color:#fff;
 }
+
+.start-button-container {
+  max-width: 1200px;
+  width: 90%;
+  margin: auto;
+}
+
+#startBtn {
+  background-color: #252525;
+  width: 150px;
+  height: 150px;
+  margin-left: auto;
+  margin-right: 0;
+  margin-bottom: 0px;
+  margin-top: 2em;
+  -webkit-border-radius: 75px;
+  -moz-border-radius: 75px;
+  border-radius: 75px;
+  -webkit-box-shadow: inset 0px 2px 0px #585858, 1px 1px 0px #000, 2px 2px 5px #000;
+  -moz-box-shadow: inset 0px 2px 0px #585858, 1px 1px 0px #000, 2px 2px 5px #000;
+  box-shadow: inset 0px 2px 0px #585858, 1px 1px 0px #000, 2px 2px 5px #000;
+}
+#hole {
+  background-color: #151515;
+  width: 119px;
+  height: 119px;
+  margin-left: auto;
+  margin-right: auto;
+  top: 19px;
+    position: relative;
+    -webkit-border-radius: 155px;
+    -moz-border-radius: 155px;
+    border-radius: 155px;
+    -webkit-box-shadow: 1px 1px 0px #5d5d5d;
+    -moz-box-shadow: 1px 1px 0px #5d5d5d;
+    box-shadow: 1px 1px 0px #5d5d5d;
+}
+#button {
+  width: 115px;
+  height: 115px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: auto;
+    cursor: pointer;
+    top: -5px;
+    position: relative;
+    background-image: linear-gradient(bottom, rgb(82,79,82) 0%, rgb(134,134,134) 57%);
+    background-image: -o-linear-gradient(bottom, rgb(82,79,82) 0%, rgb(134,134,134) 57%);
+    background-image: -moz-linear-gradient(bottom, rgb(82,79,82) 0%, rgb(134,134,134) 57%);
+    background-image: -webkit-linear-gradient(bottom, rgb(82,79,82) 0%, rgb(134,134,134) 57%);
+    background-image: -ms-linear-gradient(bottom, rgb(82,79,82) 0%, rgb(134,134,134) 57%);
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+    border-radius: 150px;
+    -webkit-box-shadow: inset 0px 2px 0px #a8a8a8, 0px 2px 0px #2a2a2a, 0px 3px 0px #2a2a2a, 0px 4px 0px #2a2a2a, 0px 5px 0px #2a2a2a, 0px 6px 0px #2a2a2a, 0px 7px 0px #2a2a2a, 0px 8px 0px #2a2a2a, 0px 9px 0px #2a2a2a, 0px 10px 0px #2a2a2a, 10px 20px 10px #000;
+    -moz-box-shadow: inset 0px 2px 0px #a8a8a8, 0px 2px 0px #2a2a2a, 0px 3px 0px #2a2a2a, 0px 4px 0px #2a2a2a, 0px 5px 0px #2a2a2a, 0px 6px 0px #2a2a2a, 0px 7px 0px #2a2a2a, 0px 8px 0px #2a2a2a, 0px 9px 0px #2a2a2a, 0px 10px 0px #2a2a2a, 10px 20px 10px #000;
+    box-shadow: inset 0px 0px 0px #a8a8a8, 0px 0px 0px #2a2a2a, 0px 1px 0px #2a2a2a, 0px 4px 0px #2a2a2a, 0px 5px 0px #2a2a2a, 0px 6px 0px #2a2a2a, 0px 7px 0px #2a2a2a, 0px 6px 0px #2a2a2a, 0px 5px 0px #2a2a2a, 0px 4px 0px #2a2a2a, 2px 9px 13px #000;
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    transition: all .2s;
+}
+#button:active {
+    top: 2px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: inset 0px 2px 0px #a8a8a8;
+}
+#triangle {
+  width: 0px;
+      height: 0px;
+      margin-left: 50%;
+      margin-top: 50%;
+      left: -17px;
+      top: -28px;
+      position: relative;
+      border-top: 25px solid transparent;
+      border-bottom: 25px solid transparent;
+      border-left: 50px solid #22a9db;
+    z-index: 2;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+}
+#button:hover #triangle { border-left: 50px solid #45bde9 }
+#button:active #triangle { border-left: 50px solid #231f20 }
+#lighter_triangle {
+    width: 0px;
+    height: 0px;
+    margin-left: 50%;
+    margin-top: 50%;
+    left: -17px;
+    top: -28px;
+    position: absolute;
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+    border-left: 50px solid #43c0ee;
+    z-index: 1;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+}
+#button:hover #lighter_triangle { border-left: 50px solid #8bdaf7 }
+#button:active #lighter_triangle { border-left: 50px solid #231f20 }
+#darker_triangle {
+    width: 0px;
+    height: 0px;
+    margin-left: 50%;
+    margin-top: 50%;
+    left: -17px;
+        top: -29px;
+    position: absolute;
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+    border-left: 50px solid #0a7da7;
+    z-index: 1;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+}
+#button:hover #darker_triangle { border-left: 50px solid #1d98c5 }
+#button:active #darker_triangle { border-left: 50px solid #000000 }
+
 
 /* #endregion Action Button */
 
