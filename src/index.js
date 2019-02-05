@@ -6,6 +6,7 @@ import './css/base.css';
 // ****************************
 // Import Images - Tell webpack to use an image (link to it in index.html)
 import './images/turing-logo.png';
+import './images/jepLogo.png';
 
 import $ from 'jquery';
 import jQuery from 'jquery'
@@ -51,7 +52,7 @@ function startGameBtn() {
   let p2 = $('#nameTwo-input').val();
   let p3 = $('#nameThree-input').val();
   game.startGame(game, p1, p2, p3);
-  $('#startBtn').remove();
+  $('.title-extra').remove();
   $('.action-button-container').css('display', 'block');
 }
 
@@ -70,8 +71,4 @@ function submitWager() {
     return clue instanceof DailyDouble;
   });
   dailyDb.updatePointValue(game, wager);
-}
-
-function quitGame(event) {
-
 }
