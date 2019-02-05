@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import Player from './Player.js'; // need
 import Clues from './Clue.js'; // need
+import DailyDouble from './dailyDouble.js';
 import Rounds from './Round.js'; // need
 import Category from './Category.js'; // need
 import Data from './data.js'; // need
@@ -55,7 +56,9 @@ class Game {
     let cardId = event.target.id;
     let card = this.rndInst.questionsArray[this.rndInst.stage];
     this.rndInst.currentAnswer = card[cardId].answer;
-    card[cardId].dailyDble === true ? DomUpdates.showDailyDbl(card[cardId]) : DomUpdates.showQuestion(card[cardId]);
+    
+    console.log(card[cardId]);
+    card[cardId] instanceof DailyDouble ? DomUpdates.showDailyDbl(card[cardId]) : DomUpdates.showQuestion(card[cardId]);
     DomUpdates.disableCard(event);
     this.rndInst.pointValue = card[cardId].pointValue;
   }

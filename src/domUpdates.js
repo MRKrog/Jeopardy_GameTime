@@ -69,7 +69,7 @@ export default {
       <section class="daily-double-title">
         <h4>Daily Double!!</h4>
         <p>Enter Your Wager Amount</p>
-        <input type="number" min="5" max="100">
+        <input class="wager-input" type="number" min="5" max="1000">
         <button class="submit-wager">Submit Wager > </button>
       </section>
     `);
