@@ -27,6 +27,15 @@ class Game {
 
   buildArray(game) {
     this.rndInst.filterArr(game, this.categoryArray, this.allClues, 4, 8);
+    console.log('game', game);
+    console.log('this rounds array', this.roundsArray);
+    this.roundsArray[this.rndInst.stage].forEach(el => {
+      console.log('rounds first', el);
+      el.forEach(subEl => {
+        subEl.pointValue = subEl.pointValue * 2;
+      })
+    })
+    // this.rndInst.questionsArray[this.rndInst.stage].forEach(el => el.pointValue * 2);
     DomUpdates.buildGameBoard(game, 4);
   }
 
@@ -55,9 +64,8 @@ class Game {
   getClue(game, event) {
     let cardId = event.target.id;
     let card = this.rndInst.questionsArray[this.rndInst.stage];
+    card[cardId].selected = true;
     this.rndInst.currentAnswer = card[cardId].answer;
-    
-    console.log(card[cardId]);
     card[cardId] instanceof DailyDouble ? DomUpdates.showDailyDbl(card[cardId]) : DomUpdates.showQuestion(card[cardId]);
     DomUpdates.disableCard(event);
     this.rndInst.pointValue = card[cardId].pointValue;

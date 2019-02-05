@@ -34,6 +34,9 @@ export default {
     let $innerBoard = $('.question-container');
     let i = game.rndInst.stage;
     let counter = 0;
+    $('body').prepend(`
+      <section class="round-title"><h2>Round ${i + 1}</h2></section>
+    `)
     game.roundsArray[i].forEach((arr, index) => {
       $innerBoard.append(`
         <section class="question-column" id="col_${index}">
@@ -70,14 +73,13 @@ export default {
         <h4>Daily Double!!</h4>
         <p>Enter Your Wager Amount</p>
         <input class="wager-input" type="number" min="5" max="1000">
-        <button class="submit-wager">Submit Wager > </button>
+        <button class="submit-wager">Submit Wager</button>
       </section>
     `);
     this.showQuestion(card);
   },
 
   correctGuess: function(game) {
-    console.log('game ', game);
     $('.answer-container').prepend(`
       <section class="show-result-container">
         <div class="result"><i class="fas fa-check"></i></div>
@@ -88,7 +90,6 @@ export default {
   },
 
   wrongGuess: function(game) {
-    console.log('game ', game);
     $('.answer-container').prepend(`
       <section class="show-result-container">
         <div class="result"><i class="fas fa-times"></i></div>
@@ -135,12 +136,20 @@ export default {
   },
 
   clearBoard: function(game) {
+    $('.round-title').remove();
     $('.question-container section').fadeOut(500, function() {
       $(this).remove();
     });
     setTimeout(function() {
       game.buildArray(game);
     }, 2000);
+  },
+
+  removeDailyBoard: function() {
+    $('.daily-double-title').fadeOut(500, function() {
+      $(this).remove();
+    });
   }
+
 
 }
