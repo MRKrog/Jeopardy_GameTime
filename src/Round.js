@@ -9,6 +9,7 @@ class Rounds {
     this.pointValue = 0;
     this.questionsArray = [];
     this.cardCount = 4;
+    this.answersArray = [];
   }
   initializeShuffle(game, start, end) {
     this.shuffle(game.categoryArray);
@@ -56,8 +57,8 @@ class Rounds {
     const dailyInstance = new DailyDouble(randomClue.question, randomClue.pointValue, randomClue.answer, randomClue.categoryId);
     let randomIdx = this.questionsArray[this.stage].indexOf(randomClue);
     this.questionsArray[this.stage].splice(randomIdx, 1, dailyInstance);
-
-    console.log('current board array', this.questionsArray[this.stage]);
+    // console.log('current board array', this.questionsArray[this.stage]);
+    console.log('Questions Array', this.questionsArray);
   }
   checkAnswer(game, userAnswer) {
     userAnswer === game.rndInst.currentAnswer ? DomUpdates.correctGuess(game) : DomUpdates.wrongGuess(game);
@@ -75,6 +76,7 @@ class Rounds {
     switch (this.stage) {
     case 1:
       this.secondRound(game);
+      this.cardCount = 1;
       break;
     case 2:
       this.thirdRound(game);
@@ -84,6 +86,12 @@ class Rounds {
   }
   secondRound(game) {
     DomUpdates.clearBoard(game);
+  }
+  thirdRound(game) {
+    DomUpdates.clearBoard(game);
+  }
+  checkThirdRound(game) {
+    game.rndInst.stage === 2 && this.cardCount === -3 ? DomUpdates.endGame(game) : DomUpdates.showFinalQuestion(game);
   }
 }
 export default Rounds;
