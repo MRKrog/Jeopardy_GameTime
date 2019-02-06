@@ -37,6 +37,10 @@ $('body').on('click', '.answerBtn', () => {
   getUserInput(event);
 });
 
+$('body').on('click', '.finalAnswerBtn', () => {
+  getUserInput(event);
+});
+
 $('body').on('click', '.submit-wager', () => {
   submitWager();
 });
@@ -48,12 +52,7 @@ $('body').on('click', '#quitBtn', () => {
 $('body').on('click', '.final-submit-wager', () => {
   let wagerValue = $('.final-wager-input').val();
   DomUpdates.checkFinalWager(game, parseInt(wagerValue));
-
-  // game.activePlayer === 3 ? DomUpdates.showFinalQuestion(game) :
 });
-
-
-
 
 function startGameBtn() {
   let p1 = $('#nameOne-input').val();
@@ -79,4 +78,10 @@ function submitWager() {
     return clue instanceof DailyDouble;
   });
   dailyDb.updatePointValue(game, wager);
+}
+
+function getUsersFinalInput(event) {
+  let userAnswer = $(event.target).text();
+  game.rndInst.checkAnswer(game, userAnswer);
+
 }

@@ -8,7 +8,8 @@ class Rounds {
     this.currentAnswer = '';
     this.pointValue = 0;
     this.questionsArray = [];
-    this.cardCount = 1;
+    this.cardCount = 4;
+    this.answersArray = [];
   }
   initializeShuffle(game, start, end) {
     this.shuffle(game.categoryArray);
@@ -87,8 +88,10 @@ class Rounds {
     DomUpdates.clearBoard(game);
   }
   thirdRound(game) {
-    console.log('Categories at 3rd', game.categoryArray);
     DomUpdates.clearBoard(game);
+  }
+  checkThirdRound(game) {
+    game.rndInst.stage === 2 && this.cardCount === -3 ? DomUpdates.endGame(game) : DomUpdates.showFinalQuestion(game);
   }
 }
 export default Rounds;

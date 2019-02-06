@@ -2,10 +2,9 @@ import DomUpdates from './domUpdates.js';
 
 class Player {
   constructor(name, score) {
-    this.name = name || 'Players';
+    this.name = name || 'Player';
     this.score = score || 0;
   }
-
 
   changePlayer(game, player) {
     DomUpdates.removePlayerPosition(game);

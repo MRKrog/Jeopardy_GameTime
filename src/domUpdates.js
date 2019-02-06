@@ -51,23 +51,23 @@ export default {
     });
   },
 
-  showQuestion: function(card) {
+  showQuestion: function(game, card) {
     $('body').prepend(`
       <section class="answer-container">
         <div class="answer-question">
           <h2>${card.question}</h2>
           <section class="select-answer">
-            <button class="answerBtn">test</button>
-            <button class="answerBtn">what</button>
-            <button class="answerBtn">${card.answer}</button>
-            <button class="answerBtn">boss</button>
+            <button class="answerBtn">${game.rndInst.answersArray[0].answer}</button>
+            <button class="answerBtn">${game.rndInst.answersArray[1].answer}</button>
+            <button class="answerBtn">${game.rndInst.answersArray[2].answer}</button>
+            <button class="answerBtn">${game.rndInst.answersArray[3].answer}</button>
           </section>
         </div>
       </section>
     `);
   },
 
-  showDailyDbl: function(card) {
+  showDailyDbl: function(game, card) {
     $('body').prepend(`
       <section class="daily-double-title">
         <h4>Daily Double!!</h4>
@@ -76,7 +76,7 @@ export default {
         <button class="submit-wager">Submit Wager</button>
       </section>
     `);
-    this.showQuestion(card);
+    this.showQuestion(game, card);
   },
 
   correctGuess: function(game) {
@@ -100,7 +100,7 @@ export default {
   },
 
   removeQuestions: function() {
-    $('.answer-container').fadeOut(1, function() {
+    $('.answer-container').fadeOut(1000, function() {
       $(this).remove();
     });
   },
@@ -156,7 +156,6 @@ export default {
     this.removePlayerPosition(game);
     game.activePlayer = 0;
     this.addPlayerPosition(game);
-    console.log('In Final Round', game);
     let $innerBoard = $('.question-container');
     $innerBoard.addClass('final-round-container');
     let i = game.rndInst.stage;
@@ -192,12 +191,13 @@ export default {
       let name = game.playerArray[game.activePlayer].name;
       $('body').prepend(`
         <section class="daily-double-title final-wager">
-          <h4>Player ${game.activePlayer}'s Wager</h4>
+          <h4>${game.playerArray[game.activePlayer].name}'s Wager</h4>
           <p>Enter Your Wager Amount</p>
           <input class="final-wager-input" type="number">
           <button class="final-submit-wager">Submit Wager</button>
         </section>
       `);
+      alert(`${game.playerArray[game.activePlayer].name} your wager can be 5 to ${game.playerArray[game.activePlayer].score}`);
     }
   },
 
@@ -209,30 +209,42 @@ export default {
       $('.daily-double-title').remove();
       this.showFinalWager(game)
     } else {
-      alert(`$${usersInputWager} is not acceptable. Input a wager from $5 - $${usersCurrentMax}`);
+      alert(`$${usersInputWager} is not acceptable. Input a wager from 5 to ${usersCurrentMax}`);
     }
   },
 
   showFinalQuestion: function(game) {
-    // console.log();
     let card = game.rndInst.questionsArray[2][3];
     $('body').prepend(`
       <section class="answer-container final-answer">
         <div class="answer-question">
-          <h3>${game.playerArray[game.activePlayer].name}'s Turn'</h3>
+          <h3>${game.playerArray[game.activePlayer].name}'s Turn</h3>
           <h2>${card.question}</h2>
           <section class="select-answer">
-            <button class="answerBtn">${card.answer}</button>
-            <button class="answerBtn">Washington State</button>
-            <button class="answerBtn">Financial Crisis</button>
-            <button class="answerBtn">Boss Mode</button>
+            <button class="finalAnswerBtn">${card.answer}</button>
+            <button class="finalAnswerBtn">Washington State</button>
+            <button class="finalAnswerBtn">Financial Crisis</button>
+            <button class="finalAnswerBtn">Boss Mode</button>
           </section>
         </div>
       </section>
     `);
-    this.showQuestion(card);
-    console.log('game', game);
-    console.log('in show final question');
+    game.rndInst.currentAnswer = card.answer;
+    game.rndInst.pointValue = game.finalWagers[game.activePlayer];
+  },
+
+  endGame: function(game) {
+    $('.answer-container').remove();
+    let winner = game.playerArray.sort((a, b) => {
+      return a.score - b.score;
+    })
+    $('body').append(`
+      <section class="display-winner">
+        <h2><span>1st Place:</span> ${winner[2].name} is The Winner!! <i class="fas fa-thumbs-up"></i></h2>
+        <h2><span>2nd Place:</span> ${winner[1].name} </h2>
+        <h2><span>3nd Place:</span> Next Time ${winner[0].name}</h2>
+      </section>
+    `)
   }
 
 }

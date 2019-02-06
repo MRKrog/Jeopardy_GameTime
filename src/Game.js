@@ -74,16 +74,20 @@ class Game {
     let card = this.rndInst.questionsArray[this.rndInst.stage];
     card[cardId].selected = true;
     this.rndInst.currentAnswer = card[cardId].answer;
-    card[cardId] instanceof DailyDouble ? DomUpdates.showDailyDbl(card[cardId]) : DomUpdates.showQuestion(card[cardId]);
+    let sampleAnswers = card.filter(el => el.categoryId === card[cardId].categoryId)
+    game.rndInst.answersArray = sampleAnswers;
+    game.rndInst.shuffle(sampleAnswers);
+    card[cardId] instanceof DailyDouble ? DomUpdates.showDailyDbl(this, card[cardId]) : DomUpdates.showQuestion(this, card[cardId]);
     DomUpdates.disableCard(event);
     this.rndInst.pointValue = card[cardId].pointValue;
+    console.log('game ', game);
   }
 
   updatePlayerScore(game, points) {
     this.playerArray[this.activePlayer].score += points;
     DomUpdates.changePlayerScore(game);
     this.rndInst.cardCount -= 1;
-    this.rndInst.checkStage(game);
+    this.rndInst.stage < 2 ? this.rndInst.checkStage(game) : this.rndInst.checkThirdRound(game);
   }
 
   inputFinalRoundWagers(game){
