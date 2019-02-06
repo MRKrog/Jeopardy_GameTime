@@ -2,7 +2,7 @@ import DomUpdates from './domUpdates.js';
 
 class Player {
   constructor(name, score) {
-    this.name = name || 'MikeK';
+    this.name = name || 'Players';
     this.score = score || 0;
   }
 

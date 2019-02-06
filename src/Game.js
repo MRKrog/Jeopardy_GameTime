@@ -15,28 +15,36 @@ class Game {
     this.allClues = []; // Stores all the clues together
     this.roundsArray = []; // Stores all the rounds/game boards
     this.rndInst = new Rounds(0); // game.round to call round here
+    this.finalWagers = [];
   }
 
-  startGame(game, p1, p2, p3) {
+  startGame(p1, p2, p3) {
     this.createPlayers(p1, p2, p3);
     this.createClues();
     this.createCategories();
-    this.rndInst.initializeShuffle(game, 0, 4);
-    DomUpdates.buildGameBoard(game, 0);
+    this.rndInst.initializeShuffle(this, 0, 4);
+    DomUpdates.buildGameBoard(this, 0);
+    // console.log('Categories at 1', game.categoryArray);
   }
 
-  buildArray(game) {
+  buildRoundTwo(game) {
+    console.log('game at 2', game);
+    console.log('in build round two');
     this.rndInst.filterArr(game, this.categoryArray, this.allClues, 4, 8);
-    console.log('game', game);
-    console.log('this rounds array', this.roundsArray);
     this.roundsArray[this.rndInst.stage].forEach(el => {
-      console.log('rounds first', el);
       el.forEach(subEl => {
         subEl.pointValue = subEl.pointValue * 2;
       })
     })
     // this.rndInst.questionsArray[this.rndInst.stage].forEach(el => el.pointValue * 2);
     DomUpdates.buildGameBoard(game, 4);
+  }
+
+  buildRoundThree(game) {
+    console.log('game at 3', game);
+    console.log('in build round three');
+    this.rndInst.filterArr(game, this.categoryArray, this.allClues, 8, 9);
+    DomUpdates.buildFinalRound(game, 8);
   }
 
   createPlayers(p1, p2, p3) {
@@ -76,6 +84,10 @@ class Game {
     DomUpdates.changePlayerScore(game);
     this.rndInst.cardCount -= 1;
     this.rndInst.checkStage(game);
+  }
+
+  inputFinalRoundWagers(game){
+    DomUpdates.showFinalWager(game);
   }
 
 }
