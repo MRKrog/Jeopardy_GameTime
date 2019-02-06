@@ -8,9 +8,9 @@ import './css/base.css';
 import './images/turing-logo.png';
 import './images/jepLogo.png';
 
-import $ from 'jquery';
+import $ from 'jquery'; // importing the jQuery library to update the game
 import jQuery from 'jquery'
-window.$ = jQuery;
+// window.$ = jQuery;
 
 // ****************************
 // Import Classes/Objects
@@ -21,7 +21,6 @@ import DailyDouble from './dailyDouble.js';
 import DomUpdates from './domUpdates.js';
 
 let game = new Game();
-// window.round = new Rounds(0);
 
 // ****************************
 // Event listeners

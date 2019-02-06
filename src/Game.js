@@ -35,7 +35,7 @@ class Game {
         subEl.pointValue = subEl.pointValue * 2;
       })
     })
-    // this.rndInst.questionsArray[this.rndInst.stage].forEach(el => el.pointValue * 2);
+    this.rndInst.questionsArray[this.rndInst.stage].forEach(el => el.pointValue * 2);
     DomUpdates.buildGameBoard(game, 4);
   }
 
@@ -73,6 +73,7 @@ class Game {
 
   updatePlayerScore(game, points) {
     this.playerArray[this.activePlayer].score += points;
+    console.log(this.playerArray[this.activePlayer].score)
     DomUpdates.changePlayerScore(game);
     this.rndInst.cardCount -= 1;
     this.rndInst.checkStage(game);
