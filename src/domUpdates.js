@@ -1,4 +1,4 @@
-import $ from 'jquery';
+import $ from 'jquery'; // importing jquery for this file
 
 export default {
 

@@ -10,15 +10,30 @@ import Round from '../src/Round.js'
 
 describe ('Round', function () {
 
-  it('Should return true', function() {
-    let round = new Round()
+it('Should return true', function() {
+  let round = new Round()
 
-    expect(true).to.equal(true);
-  });
+  expect(true).to.equal(true);
+});
 
-  it('Should be able to have a new round', function () {
-    let round = new Round(3)
+it('should be an instance of round', function() {
+let round = new Round();
 
-    expect(round.stage).to.equal(3)
-  })
+expect(round).to.be.an.instanceof(Round)
+});
+
+it('should have correct default properties', () => {
+let round = new Round()
+
+expect(round.stage).to.equal(0)
+expect(round.currentAnswer).to.equal('');
+expect(round.pointValue).to.equal(0);
+expect(round.questionsArray).to.deep.equal([]);
+expect(round.cardCount).to.equal(4)
+// expect(game.playerArray).to.deep.equal([]);
+// expect(game.categoryArray).to.deep.equal([])
+// expect(game.allClues).to.deep.equal([])
+// expect(game.roundsArray).to.deep.equal([]);
+// expect(game.rndInst).to.deep.equal({"cardCount": 4, "currentAnswer": "", "pointValue": 0, "questionsArray": [], "stage": 0 })
+});
 });
