@@ -54,7 +54,7 @@ $('input.name-input').keyup(function() {
 });
 
 // ****************************
-// Functions 
+// Functions
 
 function startGameBtn() {
   let p1 = $('#nameOne-input').val();
@@ -66,7 +66,9 @@ function startGameBtn() {
 }
 
 function questionClicked(event) {
-  game.getClue(game, event);
+  let cardId = event.target.id;
+  game.getClue(cardId, event);
+  DomUpdates.disableCard(event);
 }
 
 function getUserInput(event) {
@@ -80,9 +82,4 @@ function submitWager() {
     return clue instanceof DailyDouble;
   });
   dailyDb.updatePointValue(game, wager);
-}
-
-function getUsersFinalInput(event) {
-  let userAnswer = $(event.target).text();
-  game.rndInst.checkAnswer(game, userAnswer);
 }

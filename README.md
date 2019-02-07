@@ -1,21 +1,38 @@
 # Jeopardy GameTime
 
 ## Project Description
-> http://frontend.turing.io/projects/jeopardy.html
-> For this project you will learn object-oriented programming (OOP) principles by building the game Jeopardy. This is an opportunity to work with classes to build a program at a larger scale than you have with previous projects. This is also an opportunity for you to build out a program based on user stories - which is more aligned to what you can expect to see working with product managers in a production environment.
+> For this project I was tasked with creating an online application using OOP principles. This application was built inside webpack to simulate an online experience locally. The game is my interpretation of Jeopardy along with the design. View the Game here: https://mrkrog.github.io/Jeopardy_GameTime/
 
-## Learning Experience
->
+## Install/Setup instructions
+On the top right corner of this the repository, click the Fork button. Open your terminal and change to an empty folder. Now clone the project locally to your computer.
+- git clone git@github.com:MRKrog/Jeopardy_GameTime.git
 
-## Built With
-This project was build with the following
+Once you have cloned the repo, install the library dependencies. Run:
+- install npm
+
+To verify that it is setup correctly, run npm start in your terminal.
+- npm start
+
+Your terminal should now set up a local environment. You will see a bunch of lines output to your terminal. One of those lines will be something like this http://localhost:8080/
+- Go to http://localhost:8080/ in your browser to view the code running in the browser.
+
+### Built With
+This project was built with the following
 - HTML
 - CSS
-- Javascript
-- JQuery
-- OOP
-- Webpack
+- NPM & Webpack
+- Javascript & jQuery
+- OOP principles
+
+### Tested With
+- Chai & Mocha
+- JSLint
 
 
 ### My Assignment Screen Grab
-![Screen Grab of Jeopardy GameTime]()
+![Start Example Jeopardy GameTime](./images/Jeopardy_Start.jpg)
+![GameBoard Example Jeopardy GameTime](./images/Jeopardy_GameBoard.jpg)
+
+
+## Reflection
+> This project was the first instance of using Javascript object oriented principles, along with webpack. The initial start of the project was the hardest because compared to traditional functional Javascript, you had to methodically plan how and where each Classes/Instances & their methods would interact with each other. This project was a great eye opener in the power of instances and how objects can build powerful applications.

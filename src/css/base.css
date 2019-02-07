@@ -196,7 +196,7 @@ input:-internal-autofill-selected {
 
 .game-title {
   margin: 0;
-  top: -1.1em;
+  top: -1em;
   right: -1em;
   text-align: center;
   position: relative;
@@ -659,7 +659,7 @@ footer {
   width: 100%;
   height: 100%;
   z-index: 998;
-  background-color: rgba(39, 39, 39, 0.98);
+  background-color: rgba(39, 39, 39, 0.93);
   display: flex;
 }
 
@@ -697,6 +697,9 @@ footer {
   margin: 2%;
   outline: none;
   cursor: pointer;
+  text-transform: uppercase;
+  font-size: .95em;
+  font-weight: 300;
 }
 
 .show-result-container {
@@ -773,11 +776,12 @@ footer {
 }
 
 .daily-double-title button:hover {
-  background: #91afab;
+  background: #0560c7;
 }
 
 input.wager-input,
-input.wager-input:focus {
+input.wager-input:focus,
+input.final-wager-input {
   text-align: center;
   font-weight: bold;
   width: 20%;
@@ -803,6 +807,10 @@ input.wager-input:focus {
 
 article.question-container.final-round-container {
   height: auto;
+}
+
+.final-wager h4 {
+  font-size: 3em;
 }
 
 .final-round-container .final-round-column {
@@ -883,7 +891,8 @@ section.final-answer {
   color: #fff;
   font-style: italic;
   font-size: 1.1em;
-  max-width: 500px;
+  max-width: 385px;
+  line-height: 1.5;
   padding-top: 20px;
 }
 
