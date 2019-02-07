@@ -22,8 +22,6 @@ class Player {
     }
     DomUpdates.addPlayerPosition(game);
   }
-
-
 }
 
 

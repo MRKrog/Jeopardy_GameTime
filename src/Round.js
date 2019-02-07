@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import DomUpdates from './domUpdates.js';
 import DailyDouble from './dailyDouble.js';
 
@@ -45,20 +44,19 @@ class Rounds {
     }, []);
     this.createRoundClues(game, reducedArr);
   }
-  createRoundClues(game, reducedArr){
+  createRoundClues(game, reducedArr) {
     game.roundsArray.push(reducedArr);
     this.questionsArray.push(reducedArr.flat());
     this.createDailyDoubles(game, reducedArr);
   }
   createDailyDoubles(game, reducedArr) {
     const randomClue = this.questionsArray[this.stage][Math.floor(
-      Math.random()*this.questionsArray[this.stage].length
+      Math.random() * this.questionsArray[this.stage].length
     )];
     const dailyInstance = new DailyDouble(randomClue.question, randomClue.pointValue, randomClue.answer, randomClue.categoryId);
     let randomIdx = this.questionsArray[this.stage].indexOf(randomClue);
     this.questionsArray[this.stage].splice(randomIdx, 1, dailyInstance);
-    // console.log('current board array', this.questionsArray[this.stage]);
-    console.log('Questions Array', this.questionsArray);
+    console.log('game ', game);
   }
   checkAnswer(game, userAnswer) {
     userAnswer === game.rndInst.currentAnswer ? DomUpdates.correctGuess(game) : DomUpdates.wrongGuess(game);

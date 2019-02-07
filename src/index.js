@@ -15,13 +15,10 @@ window.$ = jQuery;
 // ****************************
 // Import Classes/Objects
 import Game from './Game.js';
-import Rounds from './Round.js';
-import Clues from './Clue.js';
 import DailyDouble from './dailyDouble.js';
 import DomUpdates from './domUpdates.js';
 
 let game = new Game();
-// window.round = new Rounds(0);
 
 // ****************************
 // Event listeners
@@ -54,6 +51,13 @@ $('body').on('click', '.final-submit-wager', () => {
   DomUpdates.checkFinalWager(game, parseInt(wagerValue));
 });
 
+$('input.name-input').keyup(function() {
+  var inputValues = $('.name-input').filter(function(el) {
+    return this.value !== '';
+  })
+  inputValues.length === 3 ? $('.start-button-container').removeClass('disabled') : $('.start-button-container').addClass('disabled');
+});
+
 function startGameBtn() {
   let p1 = $('#nameOne-input').val();
   let p2 = $('#nameTwo-input').val();
@@ -83,5 +87,4 @@ function submitWager() {
 function getUsersFinalInput(event) {
   let userAnswer = $(event.target).text();
   game.rndInst.checkAnswer(game, userAnswer);
-
 }

@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import Player from './Player.js'; // need
 import Clues from './Clue.js'; // need
 import DailyDouble from './dailyDouble.js';
@@ -10,11 +9,11 @@ import DomUpdates from './domUpdates.js'; // need
 class Game {
   constructor() {
     this.activePlayer = 0;
-    this.playerArray = []; // Stores all the players instances
-    this.categoryArray = []; // Stores all the categories together
-    this.allClues = []; // Stores all the clues together
-    this.roundsArray = []; // Stores all the rounds/game boards
-    this.rndInst = new Rounds(0); // game.round to call round here
+    this.playerArray = [];
+    this.categoryArray = [];
+    this.allClues = [];
+    this.roundsArray = [];
+    this.rndInst = new Rounds(0);
     this.finalWagers = [];
   }
 
@@ -28,21 +27,16 @@ class Game {
   }
 
   buildRoundTwo(game) {
-    console.log('game at 2', game);
-    console.log('in build round two');
     this.rndInst.filterArr(game, this.categoryArray, this.allClues, 4, 8);
     this.roundsArray[this.rndInst.stage].forEach(el => {
       el.forEach(subEl => {
         subEl.pointValue = subEl.pointValue * 2;
       })
     })
-    // this.rndInst.questionsArray[this.rndInst.stage].forEach(el => el.pointValue * 2);
     DomUpdates.buildGameBoard(game, 4);
   }
 
   buildRoundThree(game) {
-    console.log('game at 3', game);
-    console.log('in build round three');
     this.rndInst.filterArr(game, this.categoryArray, this.allClues, 8, 9);
     DomUpdates.buildFinalRound(game, 8);
   }
@@ -80,7 +74,6 @@ class Game {
     card[cardId] instanceof DailyDouble ? DomUpdates.showDailyDbl(this, card[cardId]) : DomUpdates.showQuestion(this, card[cardId]);
     DomUpdates.disableCard(event);
     this.rndInst.pointValue = card[cardId].pointValue;
-    console.log('game ', game);
   }
 
   updatePlayerScore(game, points) {
@@ -90,10 +83,9 @@ class Game {
     this.rndInst.stage < 2 ? this.rndInst.checkStage(game) : this.rndInst.checkThirdRound(game);
   }
 
-  inputFinalRoundWagers(game){
+  inputFinalRoundWagers(game) {
     DomUpdates.showFinalWager(game);
   }
-
 }
 
 export default Game;
