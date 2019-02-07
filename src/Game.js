@@ -1,10 +1,10 @@
-import Player from './Player.js'; // need
-import Clues from './Clue.js'; // need
+import Player from './Player.js';
+import Clues from './Clue.js';
 import DailyDouble from './dailyDouble.js';
-import Rounds from './Round.js'; // need
-import Category from './Category.js'; // need
-import Data from './data.js'; // need
-import DomUpdates from './domUpdates.js'; // need
+import Rounds from './Round.js';
+import Category from './Category.js';
+import Data from './data.js';
+import DomUpdates from './domUpdates.js';
 
 class Game {
   constructor() {
@@ -62,16 +62,14 @@ class Game {
     });
   }
 
-  getClue(game, event) {
-    let cardId = event.target.id;
+  getClue(cardId) {
     let card = this.rndInst.questionsArray[this.rndInst.stage];
     card[cardId].selected = true;
     this.rndInst.currentAnswer = card[cardId].answer;
     let sampleAnswers = card.filter(el => el.categoryId === card[cardId].categoryId)
-    game.rndInst.answersArray = sampleAnswers;
-    game.rndInst.shuffle(sampleAnswers);
+    this.rndInst.answersArray = sampleAnswers;
+    this.rndInst.shuffle(sampleAnswers);
     card[cardId] instanceof DailyDouble ? DomUpdates.showDailyDbl(this, card[cardId]) : DomUpdates.showQuestion(this, card[cardId]);
-    DomUpdates.disableCard(event);
     this.rndInst.pointValue = card[cardId].pointValue;
   }
 

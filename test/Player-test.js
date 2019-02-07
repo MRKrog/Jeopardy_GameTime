@@ -1,45 +1,39 @@
-
 import chai from 'chai';
 const expect = chai.expect;
 
-// Chai Spies to be able to use document and not fail test.
-// This is because when using webpack, it doesn't know what document is?
 import spies from 'chai-spies';
 chai.use(spies);
 
-// import domUpdates from '../src/domUpdates.js';
 import Player from '../src/Player.js'
 
-// chai.spy.on(domUpdates, ['', ''], () => true);
-
-// chai.spy.on(domUpdates, ['getUserInput'], () => 'The answer is Gabe');
-
 describe('Player', function () {
+  let player;
+
+  beforeEach( function () {
+    player = new Player();
+  });
 
   it('Should return true', function() {
-    var player = new Player();
-
     expect(true).to.equal(true);
   });
 
-  it('Should have a default name and score', function() {
-    var player = new Player();
+  it('Player should be an object', () => {
+    expect(player).to.be.an('object');
+  })
 
-    expect(player.name).to.equal('MikeK');
+  it('Should have a default name and score', function() {
+    expect(player.name).to.equal('Player');
     expect(player.score).to.equal(0);
   });
 
   it('Should be able to have a different name', function() {
     var player = new Player('PamPam');
-
     expect(player.name, 'PamPam');
   });
 
   it('Should have a new score', function() {
     var player = new Player('MikeKS', 1906);
-
     expect(player.score, 1906);
-
   });
 
 });

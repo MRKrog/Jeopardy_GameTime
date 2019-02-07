@@ -1,36 +1,19 @@
 import chai from 'chai';
-import DomUpdates from '../src/domUpdates.js';
-import Player from '../src/Player.js';
-import Game from '../src/Game.js';
-import spies from 'chai-spies';
-import Rounds from '../src/Round.js';
-import Data from '../src/data.js';
-import Category from '../src/Category.js';
-import Clues from '../src/Clue.js';
-import DailyDouble from '../src/dailyDouble.js';
-
-chai.use(spies);
 const expect = chai.expect;
 
-import $ from 'jquery';
+import DomUpdates from '../src/domUpdates.js';
+import Game from '../src/Game.js';
 
+import spies from 'chai-spies';
+chai.use(spies);
 
+// import $ from 'jquery';
 
 describe('Game', function () {
   let game;
-  let rndInst;
-  let playerInst1;
-  let playerInst2;
-  let playerInst3;
-  let dailyDouble;
 
   beforeEach( function () {
     game = new Game();
-    rndInst = new Rounds();
-    playerInst1 = new Player();
-    playerInst2 = new Player();
-    playerInst3 = new Player();
-    dailyDouble = new DailyDouble();
   });
 
   chai.spy.on(DomUpdates, ['buildScoreBoard', 'buildGameBoard', 'changePlayerScore', 'showFinalWager'], () => true);
@@ -74,20 +57,18 @@ describe('Game', function () {
   it('should be able to update a player score', () => {
     game.createPlayers('Mike', 'James', 'John');
     game.updatePlayerScore(game, 100);
-    expect(game.playerArray[0].score).to.equal(100)
+    expect(game.playerArray[0].score).to.equal(100);
   });
 
   it('should have change player score called once', () => {
     game.createPlayers('Mike', 'James', 'John');
     game.updatePlayerScore(game, 100);
-    
+    expect(DomUpdates.changePlayerScore).to.have.been.called(2);
   });
 
   it('should call final round wagers', () => {
     game.inputFinalRoundWagers();
-    expect(DomUpdates.showFinalWager).to.have.been.called(1)
+    expect(DomUpdates.showFinalWager).to.have.been.called(1);
   });
-
-
 
 });
