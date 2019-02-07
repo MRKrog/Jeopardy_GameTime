@@ -21,12 +21,12 @@ class DailyDouble extends Clues {
 
     let maximumWager = Math.max(usersCurrentMax, boardCurrentMax);
 
-    if(thisWager >= 5 && thisWager <= maximumWager) {
+    if (thisWager >= 5 && thisWager <= maximumWager) {
       this.pointValue = thisWager;
       game.rndInst.pointValue = thisWager;
       DomUpdates.removeDailyBoard();
     } else {
-      alert(`$${thisWager} is not acceptable. Input a wager from $5 - $${maximumWager}`);
+      alert(`$${thisWager} is not acceptable.`);
     }
   }
 }
