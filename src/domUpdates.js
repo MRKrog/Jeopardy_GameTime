@@ -237,9 +237,9 @@ export default {
     })
     $('body').append(`
       <section class="display-winner">
-        <h2><span>1st Place:</span> ${winner[2].name} is The Winner!! <i class="fas fa-thumbs-up"></i></h2>
-        <h2><span>2nd Place:</span> ${winner[1].name} </h2>
-        <h2><span>3nd Place:</span> Next Time ${winner[0].name}</h2>
+        <h2><span>1st Place :</span> ${winner[2].name} is The Winner!! <span class="bounce"><i class="fas fa-thumbs-up"></i></span></h2>
+        <h2><span>2nd Place :</span> ${winner[1].name} <i>(Solid Job)</i></h2>
+        <h2><span>3nd Place :</span> ${winner[0].name}... <i>(Next Time)</i></h2>
       </section>
     `)
   }
