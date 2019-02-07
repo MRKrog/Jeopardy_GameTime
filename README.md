@@ -30,8 +30,8 @@ This project was built with the following
 
 
 ### My Assignment Screen Grab
-![Start Example Jeopardy GameTime](./images/Jeopardy_Start.jpg)
-![GameBoard Example Jeopardy GameTime](./images/Jeopardy_GameBoard.jpg)
+![Start Example Jeopardy GameTime](/src/images/Jeopardy_Start.jpg)
+![GameBoard Example Jeopardy GameTime](/src/images/Jeopardy_GameBoard.jpg)
 
 
 ## Reflection

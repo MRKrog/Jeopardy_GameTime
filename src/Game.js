@@ -66,7 +66,7 @@ class Game {
     let card = this.rndInst.questionsArray[this.rndInst.stage];
     card[cardId].selected = true;
     this.rndInst.currentAnswer = card[cardId].answer;
-    let sampleAnswers = card.filter(el => el.categoryId === card[cardId].categoryId)
+    let sampleAnswers = card.filter(el => el.categoryId === card[cardId].categoryId);
     this.rndInst.answersArray = sampleAnswers;
     this.rndInst.shuffle(sampleAnswers);
     card[cardId] instanceof DailyDouble ? DomUpdates.showDailyDbl(this, card[cardId]) : DomUpdates.showQuestion(this, card[cardId]);

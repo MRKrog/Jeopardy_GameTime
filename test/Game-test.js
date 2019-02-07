@@ -7,7 +7,6 @@ import Game from '../src/Game.js';
 import spies from 'chai-spies';
 chai.use(spies);
 
-// import $ from 'jquery';
 
 describe('Game', function () {
   let game;
@@ -16,7 +15,7 @@ describe('Game', function () {
     game = new Game();
   });
 
-  chai.spy.on(DomUpdates, ['buildScoreBoard', 'buildGameBoard', 'changePlayerScore', 'showFinalWager'], () => true);
+  chai.spy.on(DomUpdates, ['buildScoreBoard', 'buildGameBoard', 'changePlayerScore', 'showFinalWager', 'showQuestion', 'buildFinalRound'], () => true);
 
   it('Should return true', () => {
     expect(true).to.equal(true);
@@ -70,5 +69,79 @@ describe('Game', function () {
     game.inputFinalRoundWagers();
     expect(DomUpdates.showFinalWager).to.have.been.called(1);
   });
+
+  it('should be able to start a game', () => {
+    game.createPlayers('Mike', 'Sally', 'John');
+    game.createClues();
+    game.createCategories();
+    game.rndInst.initializeShuffle(game, 0, 4);
+    expect(DomUpdates.buildGameBoard).to.have.been.called;
+  });
+
+  it('should be able to build a second round', () => {
+    game.createPlayers('Mike', 'Sally', 'John');
+    game.createClues();
+    game.createCategories();
+    game.rndInst.initializeShuffle(game, 0, 4);
+
+    game.buildRoundTwo(game);
+    expect(DomUpdates.buildGameBoard).to.have.been.called;
+  });
+
+  it('should be able to build a third round', () => {
+    game.createPlayers('Mike', 'Sally', 'John');
+    game.createClues();
+    game.createCategories();
+    game.rndInst.initializeShuffle(game, 0, 4);
+    game.buildRoundThree(game);
+    expect(DomUpdates.buildFinalRound).to.have.been.called;
+  });
+
+  it('should be make the card selected equal true', () => {
+    game.createPlayers('Mike', 'Sally', 'John');
+    game.createClues();
+    game.createCategories();
+    game.rndInst.initializeShuffle(game, 0, 4);
+    let cardId = 4;
+    game.getClue(cardId);
+    let card = game.rndInst.questionsArray[game.rndInst.stage];
+    expect(card[cardId].selected).to.equal(true);
+  });
+
+  it('should be make the card selected equal true', () => {
+    game.createPlayers('Mike', 'Sally', 'John');
+    game.createClues();
+    game.createCategories();
+    game.rndInst.initializeShuffle(game, 0, 4);
+    let cardId = 4;
+    game.getClue(cardId);
+    let card = game.rndInst.questionsArray[game.rndInst.stage];
+    expect(game.rndInst.currentAnswer).to.equal(card[cardId].answer);
+  });
+
+  it('should be make to make 4 sample answers', () => {
+    game.createPlayers('Mike', 'Sally', 'John');
+    game.createClues();
+    game.createCategories();
+    game.rndInst.initializeShuffle(game, 0, 4);
+    let cardId = 4;
+    game.getClue(cardId);
+    let card = game.rndInst.questionsArray[game.rndInst.stage];
+    let sampleAnswers = card.filter(el => el.categoryId === card[cardId].categoryId);
+    expect(sampleAnswers.length).to.equal(4);
+  });
+
+  it('The round instances point value inside of game should equal card selected', () => {
+    game.createPlayers('Mike', 'Sally', 'John');
+    game.createClues();
+    game.createCategories();
+    game.rndInst.initializeShuffle(game, 0, 4);
+    let cardId = 4;
+    game.getClue(cardId);
+    let card = game.rndInst.questionsArray[game.rndInst.stage];
+    game.rndInst.pointValue = card[cardId].pointValue;
+    expect(game.rndInst.pointValue).to.equal(card[cardId].pointValue);
+  });
+
 
 });

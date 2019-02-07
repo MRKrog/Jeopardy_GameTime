@@ -4,13 +4,13 @@ const expect = chai.expect;
 import spies from 'chai-spies';
 chai.use(spies);
 
-import Round from '../src/Round.js'
+import Rounds from '../src/Round.js'
 
-describe ('Round', function () {
+describe ('Rounds', function () {
   let round;
 
   beforeEach( function () {
-    round = new Round();
+    round = new Rounds();
   });
 
   it('Should return true', function() {
@@ -22,7 +22,7 @@ describe ('Round', function () {
   })
 
   it('should be an instance of round', function() {
-    expect(round).to.be.an.instanceof(Round)
+    expect(round).to.be.an.instanceof(Rounds)
   });
 
   it('should have correct default properties', () => {
