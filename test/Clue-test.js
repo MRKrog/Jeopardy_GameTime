@@ -44,7 +44,7 @@ describe('Clue', function() {
   });
 
   it('should have a default categoryId', function() {
-    let clue = new Clues('Never give up', 200 , 'music videos');
+    let clue = new Clues('Never give up', 200, 'music videos');
     expect(clue.categoryId).to.equal(10);
   });
 
