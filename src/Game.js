@@ -78,6 +78,7 @@ class Game {
 
   updatePlayerScore(game, points) {
     this.playerArray[this.activePlayer].score += points;
+    console.log(this.playerArray[this.activePlayer].score)
     DomUpdates.changePlayerScore(game);
     this.rndInst.cardCount -= 1;
     this.rndInst.stage < 2 ? this.rndInst.checkStage(game) : this.rndInst.checkThirdRound(game);

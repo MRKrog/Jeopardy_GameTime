@@ -29,27 +29,27 @@ describe('Clue', function() {
   });
 
   it('Should have a different question', function() {
-    var clue = new Clues("In TV land, TNT doesn't stand for trinitrotoluene but for this");
+    let clue = new Clues("In TV land, TNT doesn't stand for trinitrotoluene but for this");
     expect(clue.question).to.equal("In TV land, TNT doesn't stand for trinitrotoluene but for this");
   });
 
   it('Should have a default answer', function() {
-    var clue = new Clues('Never give up', 200, 'music videos');
+    let clue = new Clues('Never give up', 200, 'music videos');
     expect(clue.answer).to.equal('music videos');
   });
 
   it('Should have a different pointValue', function() {
-    var clue = new Clues('Never give up', 400);
+    let clue = new Clues('Never give up', 400);
     expect(clue.pointValue).to.equal(400);
   });
 
   it('should have a default categoryId', function() {
-    var clue = new Clues('Never give up', 200 , 'music videos');
+    let clue = new Clues('Never give up', 200 , 'music videos');
     expect(clue.categoryId).to.equal(10);
   });
 
   it('should have a different categoryId', function() {
-    var clue = new Clues('What do you say when you attempt to shoot a balled up paper into the trashcan', 300,  'Curry with the Shot boy', 8);
+    let clue = new Clues('What do you say when you attempt to shoot a balled up paper into the trashcan', 300,  'Curry with the Shot boy', 8);
     expect(clue.categoryId).to.equal(8);
   });
 
@@ -58,7 +58,7 @@ describe('Clue', function() {
   });
 
   it('should have a different answer', function() {
-    var clue = new Clues('cheers?', 300, 'the Disney Channel');
+    let clue = new Clues('cheers?', 300, 'the Disney Channel');
     expect(clue.answer).to.equal('the Disney Channel');
   });
 
@@ -74,6 +74,4 @@ describe('Clue', function() {
 
     expect(clue.selected).to.equal(true);
   });
-
-
 });
