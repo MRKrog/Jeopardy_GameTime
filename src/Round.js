@@ -7,7 +7,7 @@ class Rounds {
     this.currentAnswer = '';
     this.pointValue = 0;
     this.questionsArray = [];
-    this.cardCount = 4;
+    this.cardCount = 16;
     this.answersArray = [];
   }
   initializeShuffle(game, start, end) {
@@ -74,7 +74,7 @@ class Rounds {
     switch (this.stage) {
     case 1:
       this.secondRound(game);
-      this.cardCount = 1;
+      this.cardCount = 16;
       break;
     case 2:
       this.thirdRound(game);
