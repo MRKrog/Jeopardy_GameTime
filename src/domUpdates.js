@@ -72,8 +72,10 @@ export default {
       <section class="daily-double-title">
         <h4>Daily Double!!</h4>
         <p>Enter Your Wager Amount</p>
+        <span></span>
         <input class="wager-input" type="number">
         <button class="submit-wager">Submit Wager</button>
+        <span class="wager-alert">Minimum of 5 points to a maximum of your total score (if positive) or the highest points left on the board</span>
       </section>
     `);
     this.showQuestion(game, card);
@@ -141,7 +143,6 @@ export default {
       $(this).remove();
     });
     setTimeout(function() {
-      console.log('game stage', game.rndInst.stage );
       game.rndInst.stage === 2 ? game.buildRoundThree(game) : game.buildRoundTwo(game);
     }, 2000);
   },
@@ -158,8 +159,7 @@ export default {
     this.addPlayerPosition(game);
     let $innerBoard = $('.question-container');
     $innerBoard.addClass('final-round-container');
-    let i = game.rndInst.stage;
-    console.log('rounds array ', game.roundsArray[i]);
+
     $('body').prepend(`
       <section class="round-title final-round">
         <h2>FINAL ROUND</h2>
@@ -175,20 +175,18 @@ export default {
       </section>
     `)
     setTimeout(function() {
-      console.log('game timeout');
       game.inputFinalRoundWagers(game);
     }, 2000);
   },
 
   showFinalWager: function(game) {
-    if(game.activePlayer > 2) {
+    if (game.activePlayer > 2) {
       game.activePlayer = 0;
       $('.daily-double-title').remove();
       $('.final-round-container').remove();
       $('.instructions').remove();
       this.showFinalQuestion(game);
     } else {
-      let name = game.playerArray[game.activePlayer].name;
       $('body').prepend(`
         <section class="daily-double-title final-wager">
           <h4>${game.playerArray[game.activePlayer].name}'s Wager</h4>
@@ -203,7 +201,7 @@ export default {
 
   checkFinalWager: function(game, usersInputWager) {
     let usersCurrentMax = game.playerArray[game.activePlayer].score;
-    if(usersInputWager <= usersCurrentMax || usersInputWager === 5) {
+    if (usersInputWager <= usersCurrentMax || usersInputWager === 5) {
       game.finalWagers.push(usersInputWager);
       game.activePlayer++;
       $('.daily-double-title').remove();
