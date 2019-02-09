@@ -47,16 +47,25 @@ class Rounds {
   createRoundClues(game, reducedArr) {
     game.roundsArray.push(reducedArr);
     this.questionsArray.push(reducedArr.flat());
-    this.createDailyDoubles(game, reducedArr);
+    this.stage === 1 ? this.createTwoDailyDoubles() : this.createDailyDoubles();
   }
-  createDailyDoubles(game, reducedArr) {
+  createDailyDoubles() {
     const randomClue = this.questionsArray[this.stage][Math.floor(
       Math.random() * this.questionsArray[this.stage].length
     )];
     const dailyInstance = new DailyDouble(randomClue.question, randomClue.pointValue, randomClue.answer, randomClue.categoryId);
     let randomIdx = this.questionsArray[this.stage].indexOf(randomClue);
     this.questionsArray[this.stage].splice(randomIdx, 1, dailyInstance);
-    console.log('game ', game);
+  }
+  createTwoDailyDoubles() {
+    for (let i = 0; i < 2; i++) {
+      const randomClue = this.questionsArray[this.stage][Math.floor(
+        Math.random() * this.questionsArray[this.stage].length
+      )];
+      const dailyInstance = new DailyDouble(randomClue.question, randomClue.pointValue, randomClue.answer, randomClue.categoryId);
+      let randomIdx = this.questionsArray[this.stage].indexOf(randomClue);
+      this.questionsArray[this.stage].splice(randomIdx, 1, dailyInstance);
+    }
   }
   checkAnswer(game, userAnswer) {
     userAnswer === game.rndInst.currentAnswer ? DomUpdates.correctGuess(game) : DomUpdates.wrongGuess(game);
@@ -92,4 +101,5 @@ class Rounds {
     game.rndInst.stage === 2 && this.cardCount === -3 ? DomUpdates.endGame(game) : DomUpdates.showFinalQuestion(game);
   }
 }
+
 export default Rounds;

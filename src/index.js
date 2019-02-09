@@ -1,16 +1,11 @@
-// ****************************
-// Import Css - Tell webpack to use a CSS file
+
 import './css/normalize.css';
 import './css/base.css';
 
-// ****************************
-// Import Images - Tell webpack to use an image (link to it in index.html)
 import './images/turing-logo.png';
 import './images/jepLogo.png';
 
-import $ from 'jquery'; // importing the jQuery library to update the game
-import jQuery from 'jquery'
-// window.$ = jQuery;
+import $ from 'jquery';
 
 // ****************************
 // Import Classes/Objects
@@ -52,11 +47,14 @@ $('body').on('click', '.final-submit-wager', () => {
 });
 
 $('input.name-input').keyup(function() {
-  var inputValues = $('.name-input').filter(function(el) {
+  var inputValues = $('.name-input').filter(function() {
     return this.value !== '';
   })
   inputValues.length === 3 ? $('.start-button-container').removeClass('disabled') : $('.start-button-container').addClass('disabled');
 });
+
+// ****************************
+// Functions
 
 function startGameBtn() {
   let p1 = $('#nameOne-input').val();
@@ -68,7 +66,9 @@ function startGameBtn() {
 }
 
 function questionClicked(event) {
-  game.getClue(game, event);
+  let cardId = event.target.id;
+  game.getClue(cardId, event);
+  DomUpdates.disableCard(event);
 }
 
 function getUserInput(event) {
@@ -82,9 +82,4 @@ function submitWager() {
     return clue instanceof DailyDouble;
   });
   dailyDb.updatePointValue(game, wager);
-}
-
-function getUsersFinalInput(event) {
-  let userAnswer = $(event.target).text();
-  game.rndInst.checkAnswer(game, userAnswer);
 }

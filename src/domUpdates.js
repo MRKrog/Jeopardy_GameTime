@@ -1,4 +1,4 @@
-import $ from 'jquery'; // importing jquery for this file
+import $ from 'jquery';
 
 export default {
 
@@ -72,10 +72,9 @@ export default {
       <section class="daily-double-title">
         <h4>Daily Double!!</h4>
         <p>Enter Your Wager Amount</p>
-        <span></span>
         <input class="wager-input" type="number">
         <button class="submit-wager">Submit Wager</button>
-        <span class="wager-alert">Minimum of 5 points to a maximum of your total score (if positive) or the highest points left on the board</span>
+        <span class="wager-alert"><b>Minimum of 5 points</b> to a maximum of your total score (if positive) or the <b>highest points left on the board</b></span>
       </section>
     `);
     this.showQuestion(game, card);
@@ -193,9 +192,9 @@ export default {
           <p>Enter Your Wager Amount</p>
           <input class="final-wager-input" type="number">
           <button class="final-submit-wager">Submit Wager</button>
+          <span class="wager-alert"><b>Minimum of 5 points</b> to a maximum of your total score. (If you're below 0 you can only wager 5)</span>
         </section>
       `);
-      alert(`${game.playerArray[game.activePlayer].name} your wager can be 5 to ${game.playerArray[game.activePlayer].score}`);
     }
   },
 
@@ -238,9 +237,9 @@ export default {
     })
     $('body').append(`
       <section class="display-winner">
-        <h2><span>1st Place:</span> ${winner[2].name} is The Winner!! <i class="fas fa-thumbs-up"></i></h2>
-        <h2><span>2nd Place:</span> ${winner[1].name} </h2>
-        <h2><span>3nd Place:</span> Next Time ${winner[0].name}</h2>
+        <h2><span>1st Place :</span> ${winner[2].name} is The Winner!! <span class="bounce"><i class="fas fa-thumbs-up"></i></span></h2>
+        <h2><span>2nd Place :</span> ${winner[1].name} <i>(Solid Job)</i></h2>
+        <h2><span>3nd Place :</span> ${winner[0].name}... <i>(Next Time)</i></h2>
       </section>
     `)
   }
