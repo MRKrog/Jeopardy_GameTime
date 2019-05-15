@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>MM Productions</title>
+    <meta name="author" content="Mike & Mike Gametime">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/images/turing-logo.png" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  </head>
+  <body>
+    <section class="game-logo">
+      <img src="/images/jepLogo.png" alt="Jeporady" />
+    </section>
+    <section class="form-selection">
+      <form>
+        <fieldset>
+          <label for="nameOne-input" class="player-input">
+            <input class="name-input" id="nameOne-input" type="search" placeholder="&nbsp;" autocomplete="off">
+            <span class="label"><i class="fas fa-user"></i> Player 1</span>
+            <span class="border"></span>
+          </label>
+        </fieldset>
+        <fieldset>
+          <label for="nameTwo-input" class="player-input">
+            <input class="name-input" id="nameTwo-input" type="search" placeholder="&nbsp;" autocomplete="off">
+            <span class="label"><i class="fas fa-user"></i> Player 2</span>
+            <span class="border"></span>
+          </label>
+        </fieldset>
+        <fieldset>
+          <label for="nameThree-input" class="player-input">
+            <input class="name-input" id="nameThree-input" type="search" placeholder="&nbsp;" autocomplete="off">
+            <span class="label"><i class="fas fa-user"></i> Player 3</span>
+            <span class="border"></span>
+          </label>
+        </fieldset>
+      </form>
+    </section>
+    <section class="title-extra">
+      <div class="game-title">
+        <h3>Choose Your Names<span class="bounce"><i class="fas fa-angle-double-up"></i></span></h3>
+      </div>
+      <section class="start-button-container disabled">
+        <h3>Start The Game<span class="right"><i class="fas fa-angle-double-right"></i></span></h3>
+        <div id="startBtn">
+          <div id="hole">
+            <div id="button">
+              <div id="triangle"></div>
+              <div id="lighter_triangle"></div>
+              <div id="darker_triangle"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+    <section class="action-button-container">
+      <button id="quitBtn" data-after="Quit"></button>
+    </section>
+    <footer></footer>
+  <script type="text/javascript" src="main.bundle.js"></script></body>
+</html>
