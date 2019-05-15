@@ -1,128 +1,147 @@
 import chai from 'chai';
-import domUpdates from '../src/domUpdates.js';
-import Player from '../src/Player.js';
-import Game from '../src/Game.js';
-import spies from 'chai-spies';
-import Rounds from '../src/Round.js';
-import Data from '../src/data.js'; 
-import Category from '../src/Category.js'
-import Clues from '../src/Clue.js'
-
-
-
-chai.use(spies);
 const expect = chai.expect;
 
-import $ from 'jquery';
-// var jsdom = require('jsdom');
+import DomUpdates from '../src/domUpdates.js';
+import Game from '../src/Game.js';
 
-// window.jQuery = $;
-// window.$ = $;
-chai.spy.on(domUpdates, ['buildScoreBoard', 'buildGameBoard'], () => true)
-// chai.spy.on(domUpdates, ['startGame'], () => true);
-// don't forget to use deep.to.equal for objects
+import spies from 'chai-spies';
+chai.use(spies);
+
 
 describe('Game', function () {
   let game;
-  let rndInst;
-  let playerInst1;
-  let playerInst2;
-  let playerInst3;
 
   beforeEach( function () {
     game = new Game();
-    rndInst = new Rounds();
-    playerInst1 = new Player();
-    playerInst2 = new Player();
-    playerInst3 = new Player();
- 
   });
 
-  it('Should return true', function() {
+  chai.spy.on(DomUpdates, ['buildScoreBoard', 'buildGameBoard', 'changePlayerScore', 'showFinalWager', 'showQuestion', 'buildFinalRound'], () => true);
+
+  it('Should return true', () => {
     expect(true).to.equal(true);
   });
 
+  it('Game Should be an object', () => {
+    expect(game).to.be.an('object');
+  })
+
   it('should be an instance of Game', () => {
-  expect(game).to.be.an.instanceof(Game)
+    expect(game).to.be.an.instanceof(Game);
   })
 
   it('should have correct default properties', () => {
-  expect(game.activePlayer).to.equal(0);
-  expect(game.playerArray).to.deep.equal([]);
-  expect(game.categoryArray).to.deep.equal([])
-  expect(game.allClues).to.deep.equal([])
-  expect(game.roundsArray).to.deep.equal([]);
-  expect(game.rndInst).to.deep.equal({"cardCount": 4, "currentAnswer": "", "pointValue": 0, "questionsArray": [], "stage": 0 })
+    expect(game.activePlayer).to.equal(0);
+    expect(game.playerArray).to.deep.equal([]);
+    expect(game.categoryArray).to.deep.equal([])
+    expect(game.allClues).to.deep.equal([])
+    expect(game.roundsArray).to.deep.equal([]);
+    expect(game.rndInst).to.deep.equal({"stage": 0, "currentAnswer": '', "pointValue": 0, "questionsArray": [], "cardCount": 16, "answersArray": []})
   });
-
-  // it('Should be called', function() {
-  // // // game.allClues = new Clues()
-  // // // game.categoryArray = new Category()
-  // game.startGame()
-
-  // // expect(domUpdates.buildboard).to.have.been.called(1)
-  // });
 
   it('should have an value of three players in an array', () => {
     game.createPlayers();
-
     expect(game.playerArray.length).to.equal(3)
   });
 
-
   it('should have 118 clues in the allClue array', () => {
     game.createClues();
-
     expect(game.allClues.length).to.equal(114)
   });
 
+  it('should have category array of 10 of all the categories', () => {
+    game.createCategories();
+    expect(game.categoryArray.length).to.equal(10)
+  });
 
-  it('should have 118 clues in the allClue array', () => {
+  it('should be able to update a player score', () => {
+    game.createPlayers('Mike', 'James', 'John');
+    game.updatePlayerScore(game, 100);
+    expect(game.playerArray[0].score).to.equal(100);
+  });
+
+  it('should have change player score called once', () => {
+    game.createPlayers('Mike', 'James', 'John');
+    game.updatePlayerScore(game, 100);
+    expect(DomUpdates.changePlayerScore).to.have.been.called(2);
+  });
+
+  it('should call final round wagers', () => {
+    game.inputFinalRoundWagers();
+    expect(DomUpdates.showFinalWager).to.have.been.called(1);
+  });
+
+  it('should be able to start a game', () => {
+    game.createPlayers('Mike', 'Sally', 'John');
     game.createClues();
-
-    expect(game.allClues.length).to.equal(114)
+    game.createCategories();
+    game.rndInst.initializeShuffle(game, 0, 4);
+    expect(DomUpdates.buildGameBoard).to.have.been.called;
   });
 
-  it('should have category array of 10', () => {
-  game.createCategories();
+  it('should be able to build a second round', () => {
+    game.createPlayers('Mike', 'Sally', 'John');
+    game.createClues();
+    game.createCategories();
+    game.rndInst.initializeShuffle(game, 0, 4);
 
-  expect(game.categoryArray.length).to.equal(10)
+    game.buildRoundTwo(game);
+    expect(DomUpdates.buildGameBoard).to.have.been.called;
   });
 
+  it('should be able to build a third round', () => {
+    game.createPlayers('Mike', 'Sally', 'John');
+    game.createClues();
+    game.createCategories();
+    game.rndInst.initializeShuffle(game, 0, 4);
+    game.buildRoundThree(game);
+    expect(DomUpdates.buildFinalRound).to.have.been.called;
+  });
 
+  it('should be make the card selected equal true', () => {
+    game.createPlayers('Mike', 'Sally', 'John');
+    game.createClues();
+    game.createCategories();
+    game.rndInst.initializeShuffle(game, 0, 4);
+    let cardId = 4;
+    game.getClue(cardId);
+    let card = game.rndInst.questionsArray[game.rndInst.stage];
+    expect(card[cardId].selected).to.equal(true);
+  });
 
+  it('should be make the card selected equal true', () => {
+    game.createPlayers('Mike', 'Sally', 'John');
+    game.createClues();
+    game.createCategories();
+    game.rndInst.initializeShuffle(game, 0, 4);
+    let cardId = 4;
+    game.getClue(cardId);
+    let card = game.rndInst.questionsArray[game.rndInst.stage];
+    expect(game.rndInst.currentAnswer).to.equal(card[cardId].answer);
+  });
 
-  // let p1;
-  // let p2;
-  // let p3
-  //   p1 = new Player();
-  //   p2 = new Player()
-  //   p3 = new Player()
+  it('should be make to make 4 sample answers', () => {
+    game.createPlayers('Mike', 'Sally', 'John');
+    game.createClues();
+    game.createCategories();
+    game.rndInst.initializeShuffle(game, 0, 4);
+    let cardId = 4;
+    game.getClue(cardId);
+    let card = game.rndInst.questionsArray[game.rndInst.stage];
+    let sampleAnswers = card.filter(el => el.categoryId === card[cardId].categoryId);
+    expect(sampleAnswers.length).to.equal(4);
+  });
 
-  // game.createPlayers(p1, p2, p3);
-  // expect(game.playersArray).to.deep.equal(
-  //     [{name: "MikeK", score: 0}, {name: "MikeK", score: 0}, {name: "MikeK", score: 0}]);
-  // expect(game.rndInst).to.equal(new Round ()); 
+  it('The round instances point value inside of game should equal card selected', () => {
+    game.createPlayers('Mike', 'Sally', 'John');
+    game.createClues();
+    game.createCategories();
+    game.rndInst.initializeShuffle(game, 0, 4);
+    let cardId = 4;
+    game.getClue(cardId);
+    let card = game.rndInst.questionsArray[game.rndInst.stage];
+    game.rndInst.pointValue = card[cardId].pointValue;
+    expect(game.rndInst.pointValue).to.equal(card[cardId].pointValue);
+  });
 
-
-  // it('instantiates our good friend Player1', function() {
-  //   expect(player).to.be.an({})
-  // }
-
-  // it('Should have default properties', function() {
-  //   expect(game.activePlayer).to.equal(0);
-  //   // expect(game.playerArray).to.equal([]);
-  // });
-  // //
-  // it('createPlayers function to have been called once', function() {
-  //   expect(game.buildArray()).to.have.been.called(1);
-  //
-  // });
-
-  // it('Should be able to pass arguments for other rounds', function () {
-  //   var game = new Game(3);
-
-  //   expect(game.rounds, 3);
-  // });
 
 });

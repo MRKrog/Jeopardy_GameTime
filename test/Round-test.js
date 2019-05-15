@@ -4,36 +4,34 @@ const expect = chai.expect;
 import spies from 'chai-spies';
 chai.use(spies);
 
-// chai.spy.on(domUpdates, ['', ''], () => true);
+import Rounds from '../src/Round.js'
 
-import Round from '../src/Round.js'
+describe ('Rounds', function () {
+  let round;
 
-describe ('Round', function () {
+  beforeEach( function () {
+    round = new Rounds();
+  });
 
-it('Should return true', function() {
-  let round = new Round()
+  it('Should return true', function() {
+    expect(true).to.equal(true);
+  });
 
-  expect(true).to.equal(true);
-});
+  it('Round Should be an object', () => {
+    expect(round).to.be.an('object');
+  })
 
-it('should be an instance of round', function() {
-let round = new Round();
+  it('should be an instance of round', function() {
+    expect(round).to.be.an.instanceof(Rounds)
+  });
 
-expect(round).to.be.an.instanceof(Round)
-});
+  it('should have correct default properties', () => {
+    expect(round.stage).to.equal(0);
+    expect(round.currentAnswer).to.equal('');
+    expect(round.pointValue).to.equal(0);
+    expect(round.questionsArray).to.deep.equal([]);
+    expect(round.cardCount).to.equal(16);
+    expect(round.answersArray).to.deep.equal([]);
+  });
 
-it('should have correct default properties', () => {
-let round = new Round()
-
-expect(round.stage).to.equal(0)
-expect(round.currentAnswer).to.equal('');
-expect(round.pointValue).to.equal(0);
-expect(round.questionsArray).to.deep.equal([]);
-expect(round.cardCount).to.equal(4)
-// expect(game.playerArray).to.deep.equal([]);
-// expect(game.categoryArray).to.deep.equal([])
-// expect(game.allClues).to.deep.equal([])
-// expect(game.roundsArray).to.deep.equal([]);
-// expect(game.rndInst).to.deep.equal({"cardCount": 4, "currentAnswer": "", "pointValue": 0, "questionsArray": [], "stage": 0 })
-});
 });

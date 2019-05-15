@@ -1,10 +1,10 @@
-import Player from './Player.js'; // need
-import Clues from './Clue.js'; // need
+import Player from './Player.js';
+import Clues from './Clue.js';
 import DailyDouble from './dailyDouble.js';
-import Rounds from './Round.js'; // need
-import Category from './Category.js'; // need
-import Data from './Data.js'; // need
-import DomUpdates from './domUpdates.js'; // need
+import Rounds from './Round.js';
+import Category from './Category.js';
+import Data from './data.js';
+import DomUpdates from './domUpdates.js';
 
 class Game {
   constructor() {
@@ -23,7 +23,6 @@ class Game {
     this.createCategories();
     this.rndInst.initializeShuffle(this, 0, 4);
     DomUpdates.buildGameBoard(this, 0);
-    // console.log('Categories at 1', game.categoryArray);
   }
 
   buildRoundTwo(game) {
@@ -63,22 +62,19 @@ class Game {
     });
   }
 
-  getClue(game, event) {
-    let cardId = event.target.id;
+  getClue(cardId) {
     let card = this.rndInst.questionsArray[this.rndInst.stage];
     card[cardId].selected = true;
     this.rndInst.currentAnswer = card[cardId].answer;
-    let sampleAnswers = card.filter(el => el.categoryId === card[cardId].categoryId)
-    game.rndInst.answersArray = sampleAnswers;
-    game.rndInst.shuffle(sampleAnswers);
+    let sampleAnswers = card.filter(el => el.categoryId === card[cardId].categoryId);
+    this.rndInst.answersArray = sampleAnswers;
+    this.rndInst.shuffle(sampleAnswers);
     card[cardId] instanceof DailyDouble ? DomUpdates.showDailyDbl(this, card[cardId]) : DomUpdates.showQuestion(this, card[cardId]);
-    DomUpdates.disableCard(event);
     this.rndInst.pointValue = card[cardId].pointValue;
   }
 
   updatePlayerScore(game, points) {
     this.playerArray[this.activePlayer].score += points;
-    console.log(this.playerArray[this.activePlayer].score)
     DomUpdates.changePlayerScore(game);
     this.rndInst.cardCount -= 1;
     this.rndInst.stage < 2 ? this.rndInst.checkStage(game) : this.rndInst.checkThirdRound(game);

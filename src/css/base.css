@@ -44,7 +44,6 @@ body {
 
 /* #region Game Logo */
 
-
 .game-logo {
   width: 40%;
   margin: auto;
@@ -155,10 +154,6 @@ input {
   transition: all .15s ease;
 }
 
-input:hover {
-  /* background: rgba(34, 50, 84, .3); */
-}
-
 input:not(:placeholder-shown) + span {
   color: #5a667f;
   transform: translateY(-26px) scale(0.75);
@@ -189,7 +184,6 @@ input:-internal-autofill-selected {
 
 /* #region Beneath Input Section */
 
-
 .title-extra {
   max-width: 1200px;
   width: 90%;
@@ -202,7 +196,7 @@ input:-internal-autofill-selected {
 
 .game-title {
   margin: 0;
-  top: -1.1em;
+  top: -1em;
   right: -1em;
   text-align: center;
   position: relative;
@@ -231,11 +225,11 @@ input:-internal-autofill-selected {
 }
 
 @keyframes bounce {
-    0%   { transform: translateY(0px); }
-    5%   { transform: translateY(1px); }
-    10%  { transform: translateY(2px); }
-    15%  { transform: translateY(3px); }
-    20%  { transform: translateY(4px); }
+  0%   { transform: translateY(0px); }
+  5%   { transform: translateY(1px); }
+  10%  { transform: translateY(2px); }
+  15%  { transform: translateY(3px); }
+  20%  { transform: translateY(4px); }
 }
 
 .bounce i {
@@ -280,11 +274,11 @@ input:-internal-autofill-selected {
 }
 
 @keyframes right {
-    0%   { transform: translateX(0px); }
-    5%   { transform: translateX(1px); }
-    10%  { transform: translateX(2px); }
-    15%  { transform: translateX(3px); }
-    20%  { transform: translateX(4px); }
+  0%   { transform: translateX(0px); }
+  5%   { transform: translateX(1px); }
+  10%  { transform: translateX(2px); }
+  15%  { transform: translateX(3px); }
+  20%  { transform: translateX(4px); }
 }
 
 #startBtn {
@@ -320,93 +314,91 @@ input:-internal-autofill-selected {
 #button {
   width: 77px;
   height: 77px;
-    margin-left: auto;
-    margin-right: auto;
-    overflow: auto;
-    cursor: pointer;
-    top: 0px;
-    position: relative;
-    background-image: linear-gradient(bottom, rgb(82,79,82) 0%, rgb(134,134,134) 57%);
-    background-image: -o-linear-gradient(bottom, rgb(82,79,82) 0%, rgb(134,134,134) 57%);
-    background-image: -moz-linear-gradient(bottom, rgb(82,79,82) 0%, rgb(134,134,134) 57%);
-    background-image: -webkit-linear-gradient(bottom, rgb(82,79,82) 0%, rgb(134,134,134) 57%);
-    background-image: -ms-linear-gradient(bottom, rgb(82,79,82) 0%, rgb(134,134,134) 57%);
-    -webkit-border-radius: 150px;
-    -moz-border-radius: 150px;
-    border-radius: 150px;
-    -webkit-box-shadow: inset 0px 0px 0px #a8a8a8, 0px 0px 0px #2a2a2a, 0px 1px 0px #2a2a2a, 0px 4px 0px #2a2a2a, 0px 5px 0px #2a2a2a, 0px 5px 0px #2a2a2a, 0px 0px 0px #2a2a2a, 0px 0px 0px #2a2a2a, 0px 4px 0px #2a2a2a, 0px 4px 0px #2a2a2a, 2px 5px 13px #000;
-    -moz-box-shadow: inset 0px 0px 0px #a8a8a8, 0px 0px 0px #2a2a2a, 0px 1px 0px #2a2a2a, 0px 4px 0px #2a2a2a, 0px 5px 0px #2a2a2a, 0px 5px 0px #2a2a2a, 0px 0px 0px #2a2a2a, 0px 0px 0px #2a2a2a, 0px 4px 0px #2a2a2a, 0px 4px 0px #2a2a2a, 2px 5px 13px #000;
-    box-shadow: inset 0px 0px 0px #a8a8a8, 0px 0px 0px #2a2a2a, 0px 1px 0px #2a2a2a, 0px 4px 0px #2a2a2a, 0px 5px 0px #2a2a2a, 0px 5px 0px #2a2a2a, 0px 0px 0px #2a2a2a, 0px 0px 0px #2a2a2a, 0px 4px 0px #2a2a2a, 0px 4px 0px #2a2a2a, 2px 5px 13px #000;
-    -webkit-transition: all .2s;
-    -moz-transition: all .2s;
-    transition: all .2s;
-    overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: auto;
+  cursor: pointer;
+  top: 0px;
+  position: relative;
+  background-image: linear-gradient(bottom, rgb(82,79,82) 0%, rgb(134,134,134) 57%);
+  background-image: -o-linear-gradient(bottom, rgb(82,79,82) 0%, rgb(134,134,134) 57%);
+  background-image: -moz-linear-gradient(bottom, rgb(82,79,82) 0%, rgb(134,134,134) 57%);
+  background-image: -webkit-linear-gradient(bottom, rgb(82,79,82) 0%, rgb(134,134,134) 57%);
+  background-image: -ms-linear-gradient(bottom, rgb(82,79,82) 0%, rgb(134,134,134) 57%);
+  -webkit-border-radius: 150px;
+  -moz-border-radius: 150px;
+  border-radius: 150px;
+  -webkit-box-shadow: inset 0px 0px 0px #a8a8a8, 0px 0px 0px #2a2a2a, 0px 1px 0px #2a2a2a, 0px 4px 0px #2a2a2a, 0px 5px 0px #2a2a2a, 0px 5px 0px #2a2a2a, 0px 0px 0px #2a2a2a, 0px 0px 0px #2a2a2a, 0px 4px 0px #2a2a2a, 0px 4px 0px #2a2a2a, 2px 5px 13px #000;
+  -moz-box-shadow: inset 0px 0px 0px #a8a8a8, 0px 0px 0px #2a2a2a, 0px 1px 0px #2a2a2a, 0px 4px 0px #2a2a2a, 0px 5px 0px #2a2a2a, 0px 5px 0px #2a2a2a, 0px 0px 0px #2a2a2a, 0px 0px 0px #2a2a2a, 0px 4px 0px #2a2a2a, 0px 4px 0px #2a2a2a, 2px 5px 13px #000;
+  box-shadow: inset 0px 0px 0px #a8a8a8, 0px 0px 0px #2a2a2a, 0px 1px 0px #2a2a2a, 0px 4px 0px #2a2a2a, 0px 5px 0px #2a2a2a, 0px 5px 0px #2a2a2a, 0px 0px 0px #2a2a2a, 0px 0px 0px #2a2a2a, 0px 4px 0px #2a2a2a, 0px 4px 0px #2a2a2a, 2px 5px 13px #000;
+  -webkit-transition: all .2s;
+  -moz-transition: all .2s;
+  transition: all .2s;
+  overflow: hidden;
 }
 #button:active {
-    top: 2px;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: inset 0px 2px 0px #a8a8a8;
+  top: 2px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: inset 0px 2px 0px #a8a8a8;
 }
 #triangle {
   width: 0px;
-      height: 0px;
-      margin-left: 50%;
-      margin-top: 50%;
-      left: -10px;
-      top: -20px;
-      position: relative;
-      border-top: 20px solid transparent;
-      border-bottom: 20px solid transparent;
-      border-left: 35px solid #22a9db;
-    z-index: 2;
-    -webkit-transition: all .3s;
-    -moz-transition: all .3s;
-    transition: all .3s;
-        overflow: hidden;
+  height: 0px;
+  margin-left: 50%;
+  margin-top: 50%;
+  left: -10px;
+  top: -20px;
+  position: relative;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 35px solid #22a9db;
+  z-index: 2;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  transition: all .3s;
+  overflow: hidden;
 }
 #button:hover #triangle { border-left: 35px solid #45bde9 }
 #button:active #triangle { border-left: 35px solid #231f20 }
 #lighter_triangle {
-    width: 0px;
-    height: 0px;
-    margin-left: 50%;
-    margin-top: 50%;
-    left: -10px;
-    top: -19px;
-    position: absolute;
-    border-top: 20px solid transparent;
-    border-bottom: 20px solid transparent;
-    border-left: 35px solid #43c0ee;
-    z-index: 1;
-    -webkit-transition: all .3s;
-    -moz-transition: all .3s;
-    transition: all .3s;
-        overflow: hidden;
+  width: 0px;
+  height: 0px;
+  margin-left: 50%;
+  margin-top: 50%;
+  left: -10px;
+  top: -19px;
+  position: absolute;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 35px solid #43c0ee;
+  z-index: 1;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  transition: all .3s;
+  overflow: hidden;
 }
 #button:hover #lighter_triangle { border-left: 35px solid #8bdaf7 }
 #button:active #lighter_triangle { border-left: 35px solid #231f20 }
 #darker_triangle {
-    width: 0px;
-    height: 0px;
-    margin-left: 50%;
-    margin-top: 50%;
-    left: -10px;
-    top: -21px;
-    position: absolute;
-    border-top: 20px solid transparent;
-    border-bottom: 20px solid transparent;
-    border-left: 35px solid #0a7da7;
-    z-index: 1;
-    -webkit-transition: all .3s;
-    -moz-transition: all .3s;
-    transition: all .3s;
-        overflow: hidden;
+  width: 0px;
+  height: 0px;
+  margin-left: 50%;
+  margin-top: 50%;
+  left: -10px;
+  top: -21px;
+  position: absolute;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 35px solid #0a7da7;
+  z-index: 1;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  transition: all .3s;
+  overflow: hidden;
 }
 #button:hover #darker_triangle { border-left: 35px solid #1d98c5 }
 #button:active #darker_triangle { border-left: 35px solid #000000 }
-
-
 
 /* #endregion Beneath Input Section */
 
@@ -591,8 +583,7 @@ footer {
   z-index: 9;
 }
 
-
-.card, .daily-double-title {
+.card, .daily-double-title, .display-winner {
 	background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
 	background-size: 400% 400%;
   text-shadow: -4px 0px 14px #4e4648;
@@ -638,7 +629,6 @@ footer {
 	}
 }
 
-
 .card-disabled {
   background: #6d6d6d;
   color: rgba(255, 255, 255, .2);
@@ -649,8 +639,6 @@ footer {
 }
 
 .card:hover {
-  /* background:#2688bb; */
-  /* color:#2581b2; */
   transition: all .5 ease;
   box-shadow: none;
 }
@@ -671,7 +659,7 @@ footer {
   width: 100%;
   height: 100%;
   z-index: 998;
-  background-color: rgba(39, 39, 39, 0.98);
+  background-color: rgba(39, 39, 39, 0.93);
   display: flex;
 }
 
@@ -692,6 +680,7 @@ footer {
   margin: 0;
   line-height: 1.5;
   padding-bottom: 1em;
+  font-size: 1.3em;
 }
 
 .select-answer {
@@ -709,16 +698,15 @@ footer {
   margin: 2%;
   outline: none;
   cursor: pointer;
+  text-transform: uppercase;
+  font-size: .95em;
+  font-weight: 300;
 }
 
 .show-result-container {
   position: absolute;
   width: 100%;
   text-align: center;
-}
-
-.result {
-
 }
 
 .result i {
@@ -789,11 +777,12 @@ footer {
 }
 
 .daily-double-title button:hover {
-  background: #91afab;
+  background: #0560c7;
 }
 
 input.wager-input,
-input.wager-input:focus {
+input.wager-input:focus,
+input.final-wager-input {
   text-align: center;
   font-weight: bold;
   width: 20%;
@@ -816,9 +805,15 @@ input.wager-input:focus {
 
 
 /* #region Final Round */
+
 article.question-container.final-round-container {
   height: auto;
 }
+
+.final-wager h4 {
+  font-size: 3em;
+}
+
 .final-round-container .final-round-column {
   flex-direction: row;
   justify-content: center;
@@ -837,10 +832,11 @@ article.question-container.final-round-container {
 section.final-round {
   padding: 3em 0 0 0;
 }
+
 section.final-round h2 {
   font-size: 5em;
 }
-.instructions {}
+
 .instructions p {
   color: #fff;
   font-size: 1.7em;
@@ -870,20 +866,37 @@ section.final-answer {
   font-size: 2em;
   margin: 0;
   text-transform: uppercase;
-  padding-bottom: 1em;
+  padding-bottom: .5em;
 }
 
 .display-winner {
   max-width: 1200px;
-  margin:auto;
+  margin: 2em;
+  padding: 1em;
+  border-radius: 10px;
 }
 
 .display-winner h2 {
-  color:#fff;
+  color: #fff;
   font-family: 'Roboto Condensed', sans-serif;
   text-align: center;
-  font-size: 3em;
   font-weight: 100;
+  line-height: 1;
+  margin: .5em 0;
+  position: relative;
+}
+
+.display-winner h2:first-child {
+  font-size:3em;
+}
+
+.display-winner h2:nth-child(2) {
+  font-size:2.2em;
+}
+
+.display-winner h2:last-child {
+  font-size:1.5em;
+  line-height: 2;
 }
 
 .display-winner h2 span {
@@ -896,7 +909,8 @@ section.final-answer {
   color: #fff;
   font-style: italic;
   font-size: 1.1em;
-  max-width: 500px;
+  max-width: 385px;
+  line-height: 1.5;
   padding-top: 20px;
 }
 
