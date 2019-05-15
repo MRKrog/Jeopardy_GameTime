@@ -3,7 +3,7 @@ import Clues from './Clue.js'; // need
 import DailyDouble from './dailyDouble.js';
 import Rounds from './Round.js'; // need
 import Category from './Category.js'; // need
-import Data from './data.js'; // need
+import Data from './Data.js'; // need
 import DomUpdates from './domUpdates.js'; // need
 
 class Game {
