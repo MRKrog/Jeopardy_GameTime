@@ -25,16 +25,27 @@ class Rounds {
   }
   filterArr(game, allCategory, allClues, start, end) {
     const initialArr = [];
+
     for (let i = start; i < end; i++) {
+    
       let newClue = allClues.filter(arr => {
+    
         return arr.categoryId === allCategory[i].category;
+    
       });
+    
       initialArr.push(newClue);
+    
     }
+    
     let reducedArr = initialArr.reduce((acc, clueIndex) => {
+    
       let subArr = [];
+    
       for (var i = 1; i < 5; i++) {
+    
         let foundClue = clueIndex.find(element => {
+    
           return element.pointValue === 100 * i;
         });
         subArr.push(foundClue);

@@ -50,7 +50,7 @@ $('input.name-input').keyup(function() {
   var inputValues = $('.name-input').filter(function() {
     return this.value !== '';
   })
-  inputValues.length === 3 ? $('.start-button-container').removeClass('disabled') : $('.start-button-container').addClass('disabled');
+  inputValues.length === 3 ? $('.start-button-container').removeClass('disabled') : $('.start-button-container').addClass('disabled')
 });
 
 // ****************************

@@ -17,7 +17,7 @@ class Game {
     this.finalWagers = [];
   }
 
-  startGame(p1, p2, p3) {
+  startGame(p1, p2, p3) { 
     this.createPlayers(p1, p2, p3);
     this.createClues();
     this.createCategories();
@@ -30,6 +30,7 @@ class Game {
     this.roundsArray[this.rndInst.stage].forEach(el => {
       el.forEach(subEl => {
         subEl.pointValue = subEl.pointValue * 2;
+     // console.log(this.roundsArray[this.rndInst.stage])
       })
     })
     DomUpdates.buildGameBoard(game, 4);
@@ -58,7 +59,7 @@ class Game {
 
   createCategories() {
     Object.entries(Data.categories).forEach(category => {
-      this.categoryArray.push(new Category(category[0].replace(/([a-z])([A-Z])/g, '$1 $2').toUpperCase(), category[1]));
+      this.categoryArray.push(new Category(category[0].replace (/([a-z])([A-Z])/g, '$1 $2').toUpperCase(), category[1]));
     });
   }
 
